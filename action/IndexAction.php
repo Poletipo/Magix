@@ -8,7 +8,28 @@
         }
 
         protected function executeAction() {
+            $hasConnectionError = false;
 
-            return [];
+            if(isset($_POST["username"])){
+                $data = [];
+                $data["username"] = $_POST["username"];
+                $data["password"] = $_POST["pwd"];
+
+                $result = parent::callAPI("signin",$data);
+
+                if ($result == "INVALID_USERNAME_PASSWORD") {
+                    // err
+                    $hasConnectionError = true;
+                }
+                else {
+                    // Pour voir les informations retournées : var_dump($result);exit;
+                    $key = $result->key;
+                }
+                
+
+
+            }
+            
+            return compact("hasConnectionError");
         }
     }
