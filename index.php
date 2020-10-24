@@ -11,12 +11,12 @@
 <div class="login-form-frame">
     <form action="index.php" method="post">
         <?php
-        /*
+        
             if ($data["hasConnectionError"]) {
                 ?>
                 <div class="error-div"><strong>Erreur : </strong>Connexion erronée</div>
                 <?php
-            }*/
+            }
         ?>
 
         <div class="form-label">

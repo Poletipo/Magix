@@ -9,7 +9,7 @@
 
         protected function executeAction() {
             $hasConnectionError = false;
-
+            
             if(isset($_POST["username"])){
                 $data = [];
                 $data["username"] = $_POST["username"];
@@ -23,11 +23,14 @@
                 }
                 else {
                     // Pour voir les informations retournées : var_dump($result);exit;
-                    $key = $result->key;
+                    $_SESSION["theOneAndUltimateKey"] = $result->key;
+                    $_SESSION["visibility"] = CommonAction::$VISIBILITY_MEMBER;
+                    $_SESSION["username"] = $data["username"];
+                    //$key = $result->key;
+
+                    header("location:lobby.php");
+					exit;
                 }
-                
-
-
             }
             
             return compact("hasConnectionError");
