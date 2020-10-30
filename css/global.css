@@ -11,7 +11,7 @@
 }
 
 body {
-
+	background-color: rgb(253, 253, 253);
 	display: flex;
 	align-items: center;
 	flex-flow: column;
@@ -126,6 +126,18 @@ body {
 	flex: 1 ;
 }
 
-
+.login-title{
+	pointer-events:none;
+	border: none;
+	display: block;
+	background: url("../img/Magix_logo.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+	position: absolute;
+	width: 800px;
+	height: 300px;
+	left: 28%;
+	top: 50%;
+}
 
 

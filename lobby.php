@@ -6,11 +6,12 @@
 
     require_once("partial/header.php");
 ?>
+<script src="js/lobbyJavascript.js"></script>
 <div>
-    <h1>Ceci est le Lobby</h1>
-    <button>Pratique</button>
-    <button>Jouer</button>
-    <button>Quitter</button>
+        <h1>Ceci est le Lobby</h1>
+        <button name="pratique">Pratique</button>
+        <button name="jouer">Jouer</button>
+        <button name="quitter">Quitter</button>
 </div>
 
 <div>

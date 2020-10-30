@@ -1,7 +1,7 @@
 <?php
-    require_once("action/AjaxAction.php");
+    require_once("action/LobbyAjaxAction.php");
 
-    $action = new AjaxAction();
+    $action = new LobbyAjaxAction();
     $data = $action->execute();
 
     echo json_encode($data["result"]);
