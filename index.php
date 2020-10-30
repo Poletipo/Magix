@@ -30,18 +30,18 @@
                 <div class="form-separator"></div>
             </div>
             <div class="form-demands">
-            <div class="form-button">
-                <button type="submit">Connexion</button>
+                <div class="form-button">
+                    <button type="submit">Connexion</button>
+                </div>
+                <?php
+                    if ($data["hasConnectionError"]) {
+                        ?>
+                        <div class="error-div"><strong>Erreur : </strong>Connexion erronée</div>
+                        <?php
+                    }
+                ?>
+                <div class="form-separator"></div>
             </div>
-            <?php
-                if ($data["hasConnectionError"]) {
-                    ?>
-                    <div class="error-div"><strong>Erreur : </strong>Connexion erronée</div>
-                    <?php
-                }
-            ?>
-            <div class="form-separator"></div>
-            <div class="form-demands">
         </form>
     </div>
 </div>
