@@ -20,7 +20,7 @@ body {
 }
 
 .login{
-	background-image: url('../img/RKokR1TUbe4wyU7SS.jpg');
+	background-color: black;
 	background-size: cover;
 	background-attachment: fixed;
 	background-position: center top;
@@ -29,6 +29,7 @@ body {
 	align-items: center;
 	width: 100%;
 	flex: 1 ;
+	position: relative;
 }
 
 .login-connexion{
@@ -94,7 +95,37 @@ body {
 	align-items: center;
 	flex-flow: column;
 	background-image: url("../img/cadre_login.png");
-	margin-top: 300px;
+	margin-top: 200px;
 }
+
+.geralt{
+	pointer-events:none;
+	background-image: url("../img/geralt.png");
+	background-repeat: no-repeat;
+	background-size: auto 100%;
+	position: absolute;
+	display: flex;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	flex: 1 ;
+}
+
+.ciri{
+	pointer-events:none;
+	background-image: url("../img/ciri.png");
+	background-repeat: no-repeat;
+	background-size: auto 100%;
+	background-position: right;
+	position: absolute;
+
+	display: flex;
+  	right:0px; 
+	width: 100%;
+	height: 100%;
+	flex: 1 ;
+}
+
+
 
 

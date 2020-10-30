@@ -8,6 +8,9 @@
 ?>
 
 <div class="login">
+    <div class="geralt"></div>
+    <div class="ciri"></div>
+    <div class="login-title"></div>
     <div class="login-form-frame">
         <h1 class="login-connexion">Connexion</h1>
         <form action="index.php" method="post" class="login-form">
