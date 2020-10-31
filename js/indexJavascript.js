@@ -1,8 +1,10 @@
-
+import Geralt from "./sprite/Geralt.js";
 let spriteList = [];
 
 window.addEventListener("load", () => {
+    console.log("Begin");
 
+    spriteList.push(new Geralt());
 
     window.requestAnimationFrame(tick);
 })
@@ -16,7 +18,7 @@ const tick = timeSpan =>{
 
     for (let i = 0; i < spriteList.length; i++) {
         const element = spriteList[i];
-        let alive = element.tick(deltaTick, spriteList);
+        let alive = element.tick(deltaTick);
     
         if(spriteList[i].name == "ChatIntro" && !alive){
             introDone = true;

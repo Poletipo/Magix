@@ -7,6 +7,8 @@
     require_once("partial/header.php");
 ?>
 
+<script type="module" src="./js/indexJavascript.js"></script>
+
 <div class="login">
     <div class="geralt"></div>
     <div class="ciri"></div>
