@@ -1,10 +1,12 @@
 import Geralt from "./sprite/Geralt.js";
+import Ciri from "./sprite/Ciri.js";
 let spriteList = [];
 
 window.addEventListener("load", () => {
     console.log("Begin");
 
     spriteList.push(new Geralt());
+    spriteList.push(new Ciri());
 
     window.requestAnimationFrame(tick);
 })
