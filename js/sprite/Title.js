@@ -1,13 +1,13 @@
 import AnimationHelper from "../AnimationHelper.js"
-export default class Geralt{
+export default class Title{
     constructor(){
 
-        this.node = document.querySelector(".geralt");
-        console.log("GERLAT");
-        this.anim = new AnimationHelper(this.node,[[-783,0, 0,0],[0,0, 0,3]]);
+        this.node = document.querySelector(".login-title");
+        this.animKeys = [[0,0,0,0],[0,500,1000,2]];
+        this.anim = new AnimationHelper(this.node,this.animKeys);
+
 
     }
-
 
     tick(deltatick){
         
@@ -22,5 +22,4 @@ export default class Geralt{
 
         return alive;
     }
-
 }

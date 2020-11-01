@@ -1,5 +1,6 @@
 import Geralt from "./sprite/Geralt.js";
 import Ciri from "./sprite/Ciri.js";
+import Title from "./sprite/Title.js";
 let spriteList = [];
 
 window.addEventListener("load", () => {
@@ -7,6 +8,7 @@ window.addEventListener("load", () => {
 
     spriteList.push(new Geralt());
     spriteList.push(new Ciri());
+    spriteList.push(new Title());
 
     window.requestAnimationFrame(tick);
 })
