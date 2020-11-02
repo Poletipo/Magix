@@ -14,7 +14,6 @@ export default class Title{
         this.introDone = false;
         
         this.node.style.width = 200 + "%";
-        //this.node.style.width = 5000 + "px";
         this.node.style.height = 200 + "%";
         
     }
@@ -24,7 +23,7 @@ export default class Title{
         let alive = true;
         let aliveAnim = false;
         if(this.anim){
-            
+
             aliveAnim = this.anim.tick(deltatick);
         }
         if(!aliveAnim){
@@ -56,7 +55,6 @@ export default class Title{
 
             this.newPosX = this.suposedX + this.x;
             this.newPosY = this.suposedY + this.y;
-            //console.log(this.node.style.left,this.newPosX);
             let newAnimKey = [[parseInt(this.node.style.left),parseInt(this.node.style.top), 0, 0], [this.newPosX, this.newPosY, 10, 0.1]];
             this.anim = null;
             this.anim = new AnimationHelper(this.node, newAnimKey);

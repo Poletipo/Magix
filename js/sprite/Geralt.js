@@ -5,7 +5,6 @@ export default class Geralt{
         document.addEventListener("mousemove", evt =>{this.interactifMove(evt)});
 
         this.node = document.querySelector(".geralt");
-        console.log("GERLAT");
         this.anim = new AnimationHelper(this.node,[[-783,0, 0,0],[0,0, 0,3]]);
 
     }
@@ -27,14 +26,11 @@ export default class Geralt{
     
     
     interactifMove(evt){
-        console.log("hello");
         if(!this.anim){
             let w = window.innerWidth;
             let h = window.innerHeight;
     
             this.suposedX = 0;
-
-
             this.x = evt.x/-40;
         
             this.newPosX = this.suposedX + this.x;

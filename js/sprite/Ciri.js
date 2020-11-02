@@ -28,15 +28,12 @@ export default class Ciri{
     interactifMove(evt){
         if(!this.anim){
             let w = window.innerWidth;
-            let h = window.innerHeight;
     
             this.suposedX = 0;
-
 
             this.x = (w - evt.x)/50;
         
             this.newPosX = this.suposedX + this.x;
-            console.log(this.node.style.left,this.newPosX);
             let newAnimKey = [[parseInt(this.node.style.left),parseInt(this.node.style.top), 0, 0], [this.newPosX, 0, 10, 0.1]];
             this.anim = null;
             this.anim = new AnimationHelper(this.node, newAnimKey);

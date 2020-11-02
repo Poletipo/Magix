@@ -37,7 +37,7 @@ body {
 .login-connexion{
 	-webkit-text-stroke:2px rgb(206, 189, 36);
 	font-size: 40px;
-	color: rgb(23, 226, 50);
+	color: rgb(19, 165, 80);
 	margin-top: 20px;
 	text-shadow: 2px 2px 2px black;
 }
@@ -98,6 +98,7 @@ body {
 	flex-flow: column;
 	background-image: url("../img/cadre_login.png");
 	margin-top: 200px;
+	z-index: 2;
 }
 
 .geralt{
@@ -111,6 +112,7 @@ body {
 	width: 100%;
 	height: 100%;
 	flex: 1 ;
+	z-index: 1;
 }
 
 .ciri{
@@ -125,6 +127,7 @@ body {
 	width: 100%;
 	height: 100%;
 	flex: 1 ;
+	z-index: 1;
 }
 
 .login-title{
@@ -140,6 +143,17 @@ body {
 	height: 500px;
 	left: 0;
 	top: 50%;
+	z-index: 3;
+}
+
+.smokePuff{
+
+	position: absolute;
+	background-image: url("../img/smoke-sprite-png-5.png");
+	background-position: center;
+	background-size: contain;
+	mix-blend-mode: screen;
+	z-index: 0;
 }
 
 
