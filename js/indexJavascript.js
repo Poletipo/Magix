@@ -11,6 +11,7 @@ window.addEventListener("load", () => {
     spriteList.push(new Geralt());
     spriteList.push(new Ciri());
     spriteList.push(new Title());
+    //spriteList.push(new Smoke(50,75,5,-3,50,999,document.querySelector(".smoke-container"), "%"));
     
     window.requestAnimationFrame(tick);
 })
@@ -24,14 +25,13 @@ const tick = timeSpan =>{
     
     smokeTimer += deltaTick;
     if(smokeTimer >= smokeSpawn){
-        let speedX  = (Math.random() <= 0.5 )? Math.random()*20+90 : Math.random()*-20-90;
-        let speedY = Math.random()*20-70;
+        let speedX  = (Math.random() <= 0.5 )? Math.random()*2+5 : Math.random()*-2-5;
+        let speedY = Math.random()*2 - 7;
         smokeSpawn = Math.random();
-        let size = Math.random()*100 + 500;
+        let size = Math.random()*10 + 50;
         let time = Math.random()*3+4;
-        spriteList.push(new Smoke(1000,700,speedX,speedY, size, time, document.querySelector(".smoke-container")));
+        spriteList.push(new Smoke(50,75,speedX,speedY, size, time, document.querySelector(".smoke-container"), "%"));
         smokeTimer = 0;
-        
     }
 
 

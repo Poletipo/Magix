@@ -1,7 +1,8 @@
 export default class Smoke{
-    constructor(x,y,speedX, speedY, size, duration, parent){
+    constructor(x,y,speedX, speedY, size, duration, parent,style){
         this.size = size;
-        this.x = x - this.size/2;
+        this.style = style;
+        this.x = x -this.size/2;
         this.y = y - this.size/2;
         this.timer = 0;
         this.duration = duration;
@@ -10,8 +11,8 @@ export default class Smoke{
         
         this.node = document.createElement("div");
         this.node.className = "smokePuff";
-        this.node.style.width = this.size +"px"; 
-        this.node.style.height = this.size +"px";
+        this.node.style.width = this.size +this.style; 
+        this.node.style.height = this.size +this.style;
 
         if(Math.random() < 0.5){
             this.node.style.backgroundImage = "url('./img/smoke-sprite-png-1.png')";
@@ -49,8 +50,8 @@ export default class Smoke{
         this.x += this.speedX * deltatick;
         this.y += this.speedY * deltatick;
 
-        this.node.style.left = this.x +"px";
-        this.node.style.top = this.y +"px";
+        this.node.style.left = this.x +this.style;
+        this.node.style.top = this.y +this.style;
 
         if(this.y > (h+this.size) || this.y < (0 - this.size) || 
             this.x < 0 - this.size || this.x > (w+this.size)){
