@@ -29,7 +29,7 @@ const tick = timeSpan =>{
         smokeSpawn = Math.random();
         let size = Math.random()*100 + 500;
         let time = Math.random()*3+4;
-        spriteList.push(new Smoke(1000,750,speedX,speedY, size, time, document.querySelector(".login")));
+        spriteList.push(new Smoke(1000,700,speedX,speedY, size, time, document.querySelector(".smoke-container")));
         smokeTimer = 0;
         
     }

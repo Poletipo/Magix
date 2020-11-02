@@ -49,6 +49,7 @@
             </div>
         </form>
     </div>
+    <div class= "smoke-container"></div>
 </div>
 
 <?php

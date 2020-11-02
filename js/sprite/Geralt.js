@@ -34,7 +34,7 @@ export default class Geralt{
             this.x = evt.x/-40;
         
             this.newPosX = this.suposedX + this.x;
-            let newAnimKey = [[parseInt(this.node.style.left),parseInt(this.node.style.top), 0, 0], [this.newPosX, 0, 10, 0.1]];
+            let newAnimKey = [[parseFloat(this.node.style.left),parseFloat(this.node.style.top), 0, 0], [this.newPosX, 0, 10, 0.1]];
             this.anim = null;
             this.anim = new AnimationHelper(this.node, newAnimKey);
         }
