@@ -163,3 +163,157 @@ body {
 }
 
 
+
+/*--------------JEU------------------*/
+
+.table-jeu{
+	background-image: url("../img/game-board.png");
+	background-size: 100% 100%;
+	background-attachment: fixed;
+	background-position: center top;
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	width: 100%;
+	flex: 1 ;
+	position: relative;
+	overflow: hidden;
+}
+@media only screen and (max-width: 800px) {
+	.table-jeu {
+		background-image: url("../img/game-board-small.png");
+	}
+  }
+
+.enemy-side{
+	width: 100%;
+	/*background-color: rgba(165, 42, 42, 0.411);
+	border: 4px solid black;*/
+	height: 15%;
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+}
+.enemy-side-cartesEnMain{
+	/*background-color: rgba(229, 255, 0, 0.411);*/
+	flex-grow: 1;
+	display: flex;
+	justify-content: flex-start;
+}
+.enemy-unturned-card{
+	background-image: url("../img/card-back.png");
+	height: 100%;
+	width: 15%;
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	margin-left: 1%;
+}
+.enemy-side-milieu{
+	/*background-color: rgba(0, 255, 34, 0.411);*/
+	flex-grow: 0.5;
+	display: flex;
+	justify-content: space-evenly;
+}
+.enemy-space{
+	flex-grow: 0.5;
+}
+
+.enemy-picture{
+	background-image: url("../img/picture-enemy.png");
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	height: 130%;
+	flex-grow: 1;
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+}
+.enemy-name{
+	font-size: 7vh;
+	text-align: center;
+	color: rgb(238, 0, 0);
+}
+
+.enemy-vie{
+	background-image: url("../img/crystal-rouge.png");
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	display: flex;
+	height: 100%;
+	flex-grow: 1;
+	align-items: center;
+	justify-content: center;
+}
+.enemy-vie-valeur{
+	height: 45%;
+	font-size: 7vh;
+	text-align: center;
+	color: rgb(235, 232, 61);
+}
+.enemy-mana{
+	background-image: url("../img/crystal-bleu.png");
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	display: flex;
+	height: 100%;
+	flex-grow: 1;
+	align-items: center;
+	justify-content: center;
+}
+.enemy-mana-valeur{
+	height: 45%;
+	font-size: 7vh;
+	text-align: center;
+	color: rgb(235, 232, 61);
+}
+
+
+.enemy-side-cartesRestantes{
+	background-color: rgba(255, 123, 0, 0.411);
+	flex-grow: 1;
+}
+
+.enemy-play-side{
+	width: 100%;
+	background-color: rgba(255, 0, 191, 0.411);
+	border: 4px solid rgb(255, 0, 0);
+	height: 28%;
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: center;
+}
+.player-play-side{
+	width: 100%;
+	background-color: rgba(0, 174, 255, 0.411);
+	border: 4px solid rgb(38, 0, 255);
+	height: 32%;
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: center;
+}
+.player-side{
+	width: 100%;
+	background-color: rgba(0, 255, 55, 0.411);
+	border: 4px solid rgb(0, 134, 7);
+	height: 25%;
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+}
+
+.player-side-info{
+	background-color: rgba(229, 255, 0, 0.411);
+	flex-grow: 1;
+}
+.player-side-cartesEnMain{
+	background-color: rgba(0, 255, 34, 0.411);
+	flex-grow: 2;
+}
+.player-side-buttonsRight{
+	background-color: rgba(255, 123, 0, 0.411);
+	flex-grow: 1;
+}

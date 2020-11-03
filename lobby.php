@@ -5,8 +5,24 @@
     $data = $action->execute();
 
     require_once("partial/header.php");
+
+
+
+    
 ?>
 <script src="js/lobbyJavascript.js"></script>
+
+<div>
+        <?php
+            if ($data["isLoggedIn"]) {
+                ?>
+                Bonjour, <?= $_SESSION["username"] ?> !
+                <?php
+            }
+        ?>
+</div>
+
+
 <div>
         <h1>Ceci est le Lobby</h1>
         <button name="pratique">Pratique</button>

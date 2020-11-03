@@ -39,11 +39,6 @@ const tick = timeSpan =>{
     for (let i = 0; i < spriteList.length; i++) {
         const element = spriteList[i];
         let alive = element.tick(deltaTick);
-    
-        if(spriteList[i].name == "ChatIntro" && !alive){
-            introDone = true;
-        }
-
 
         if (!alive) {
             spriteList.splice(i, 1);

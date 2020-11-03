@@ -25,5 +25,9 @@ const sendForm = name =>{
         if(name == "quitter"){
             window.location.href = "index.php";
         }
+        if(name == "pratique" || name == "jouer"){
+            window.location.href = "jeu.php";
+
+        }
     })
 }
