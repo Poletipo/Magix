@@ -33,7 +33,22 @@
     <div class="enemy-play-side"></div>
     <div class="player-play-side"></div>
     <div class="player-side">
-        <div class = "player-side-info"></div>
+        <div class = "player-side-info">
+            <div class="player-side-info-valeur">
+                <div class ="player-vie">
+                    <p class="player-vie-valeur">100</p>
+                </div>
+                <div class ="player-mana">
+                    <p class="player-mana-valeur">100</p>
+                </div>
+            </div>
+            <div class="player-side-info-carte">
+                <div class ="player-cartesLogo">
+                    <p class="player-cartesRestanteValeur">50</p>
+                </div>
+                
+            </div>
+        </div>
         <div class = "player-side-cartesEnMain">
         </div>
         <div class = "player-side-buttonsRight"></div>

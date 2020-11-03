@@ -206,7 +206,7 @@ body {
 	height: 100%;
 	width: 15%;
 	background-size: contain;
-	background-position: right;
+	background-position: center;
 	background-repeat: no-repeat;
 	margin-left: 1%;
 }
@@ -329,13 +329,91 @@ body {
 
 .player-side-info{
 	background-color: rgba(229, 255, 0, 0.411);
-	flex-grow: 1;
+	flex-grow: 0;
+	width: 15%;
+	display: flex;
 }
+.player-side-info-valeur{
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.player-vie{
+	background-image: url("../img/crystal-rouge.png");
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	display: flex;
+	height: 100%;
+	width: 100%;
+	flex:1;
+	align-items: center;
+	justify-content: center;
+}
+.player-vie-valeur{
+	height: 55%;
+	font-size: 7vh;
+	text-align: center;
+	color: #f8e196;
+	text-shadow: 0.2vh 0.5vh 0.5vh black;
+}
+
+.player-mana{
+	background-image: url("../img/crystal-bleu.png");
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	display: flex;
+	height: 100%;
+	width: 100%;
+	flex:1;
+	align-items: center;
+	justify-content: center;
+}
+.player-mana-valeur{
+	height: 55%;
+	font-size: 7vh;
+	text-align: center;
+	color: #f8e196;
+	text-shadow: 0.2vh 0.5vh 0.5vh black;
+}
+
+.player-side-info-carte{
+	width: 100%;
+	height: 100%;
+}
+.player-cartesLogo{
+	background-image: url("../img/carte-restante.png");
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	height: 100%;
+	width: 80%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.player-cartesRestanteValeur{
+	padding-top: 35%;
+	padding-left: 10%;
+	font-size: 6vh;
+	text-align: center;
+	color: #f8e8b4;
+	text-shadow: 0.2vh 0.5vh 0.5vh black;
+}
+
+
 .player-side-cartesEnMain{
 	background-color: rgba(0, 255, 34, 0.411);
-	flex-grow: 4;
+	flex-grow: 0;
+	width: 70%;
+	display: flex;
 }
 .player-side-buttonsRight{
 	background-color: rgba(255, 123, 0, 0.411);
-	flex-grow: 1;
+	flex-grow: 0;
+	width: 15%;
+	display: flex;
 }
