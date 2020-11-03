@@ -11,8 +11,6 @@
         <div class = "enemy-side-cartesEnMain">
             <div class="enemy-unturned-card"></div>
             <div class="enemy-unturned-card"></div>
-            <div class="enemy-unturned-card"></div>
-
         </div>
         <div class = "enemy-side-milieu">
             <div class="enemy-space"></div>
@@ -27,13 +25,17 @@
             </div>
             <div class="enemy-space"></div>
         </div>
-        <div class = "enemy-side-cartesRestantes"></div>
+        <div class = "enemy-side-cartesRestantes">
+            <div class ="enemy-cartesLogo"></div>
+            <p class="enemy-cartesRestanteValeur">50</p>
+        </div>
     </div>
     <div class="enemy-play-side"></div>
     <div class="player-play-side"></div>
     <div class="player-side">
         <div class = "player-side-info"></div>
-        <div class = "player-side-cartesEnMain"></div>
+        <div class = "player-side-cartesEnMain">
+        </div>
         <div class = "player-side-buttonsRight"></div>
     </div>
 
