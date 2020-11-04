@@ -123,7 +123,10 @@
         </div>
     </div>
 
-
+    <div class = "section-time">
+        <div class="time-sablier"></div>
+        <p class="time-valeur">50</p>
+    </div>
 
 </div>
 
