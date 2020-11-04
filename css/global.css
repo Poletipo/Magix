@@ -569,7 +569,7 @@ body {
 	width: 20vh;
 	position: absolute;
 	top: 33%;
-	left: 90%;
+	right: 1%;
 	display: flex;
 	align-items: center;
 }
@@ -588,3 +588,5 @@ body {
 	height: 10vh;
 	color: rgb(0, 255, 136);
 }
+
+/*https://drive.google.com/drive/folders/1MsoUord03QB7-OlBtCXfstTZ9LRP4Qn1*/
