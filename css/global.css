@@ -475,6 +475,7 @@ body {
 }
 .carte-mana-valeur{
 	font-size: 4vh;
+	color: rgb(0, 162, 255);
 }
 .carte-attack{
 	background-image: url("../img/carte-attack.png");
@@ -529,6 +530,10 @@ body {
 	height: 37%;
 	width: 100%;
 	background-color: rgb(233, 209, 143);
+	background-image: url("../img/carte-bas.png");
+	background-size: 100% 100%;
+	background-position: center;
+	background-repeat: no-repeat;
 }
 .carte-nom{
 	padding-top: 1vh;
