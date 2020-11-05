@@ -6,6 +6,7 @@
 
     require_once("partial/header.php");
 ?>
+<script src="js/jeuJavascript.js"></script>
 <div class="table-jeu">
     <div class="enemy-side">
         <div class = "enemy-side-cartesEnMain">
@@ -124,8 +125,8 @@
     </div>
 
     <div class = "section-time">
-        <div class="time-sablier"></div>
         <p class="time-valeur">50</p>
+        <div class="time-sablier"></div>
     </div>
 
 </div>

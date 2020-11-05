@@ -178,6 +178,7 @@ body {
 	flex: 1 ;
 	position: relative;
 	overflow: hidden;
+	user-select: none;
 }
 @media only screen and (max-width: 800px) {
 	.table-jeu {
@@ -187,24 +188,25 @@ body {
 
 .enemy-side{
 	width: 100%;
-	background-color: rgba(165, 42, 42, 0.411);
-	border: 4px solid black;
-	height: 15%;
+	/*background-color: rgba(165, 42, 42, 0.411);
+	border: 4px solid black;*/
+	height: 13%;
 	display: flex;
 	flex-wrap: nowrap;
 	justify-content: space-between;
 }
 .enemy-side-cartesEnMain{
-	background-color: rgba(229, 255, 0, 0.411);
+	/*background-color: rgba(229, 255, 0, 0.411);*/
 	flex-grow: 1;
 	display: flex;
 	justify-content: flex-end;
+	align-items: center;
 }
 
 .enemy-unturned-card{
 	background-image: url("../img/card-back.png");
-	height: 100%;
-	width: 15%;
+	height: 80%;
+	width: 12%;
 	background-size: contain;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -232,7 +234,8 @@ body {
 	justify-content: center;
 }
 .enemy-name{
-	font-size: 7vh;
+	font-size: 5vh;
+	padding-top: -3vh;
 	text-align: center;
 	color: rgb(167, 0, 0);
 	text-shadow: 0.2vh 0.5vh 0.5vh black;
@@ -252,7 +255,7 @@ body {
 	justify-content: center;
 }
 .enemy-vie-valeur{
-	height: 45%;
+	height: 50%;
 	font-size: 7vh;
 	text-align: center;
 	color: #f8e196;
@@ -271,7 +274,7 @@ body {
 	justify-content: center;
 }
 .enemy-mana-valeur{
-	height: 45%;
+	height: 50%;
 	font-size: 7vh;
 	text-align: center;
 	color: #f8e196;
@@ -280,7 +283,7 @@ body {
 }
 
 .enemy-side-cartesRestantes{
-	background-color: rgba(255, 123, 0, 0.411);
+	/*background-color: rgba(255, 123, 0, 0.411);*/
 	flex: 1;
 	display: flex;
 	align-items: center;
@@ -304,9 +307,9 @@ body {
 
 .enemy-play-side{
 	width: 100%;
-	background-color: rgba(255, 0, 191, 0.411);
-	border: 4px solid rgb(255, 0, 0);
-	height: 28%;
+	/*background-color: rgba(255, 0, 191, 0.411);
+	border: 4px solid rgb(255, 0, 0);*/
+	height: 30%;
 	display: flex;
 	flex-wrap: nowrap;
 	justify-content: center;
@@ -316,8 +319,8 @@ body {
 /*--------------PLAYER-------------*/
 .player-play-side{
 	width: 100%;
-	background-color: rgba(0, 174, 255, 0.411);
-	border: 4px solid rgb(38, 0, 255);
+	/*background-color: rgba(0, 174, 255, 0.411);
+	border: 4px solid rgb(38, 0, 255);*/
 	height: 32%;
 	display: flex;
 	flex-wrap: nowrap;
@@ -326,8 +329,8 @@ body {
 }
 .player-side{
 	width: 100%;
-	background-color: rgba(0, 255, 55, 0.411);
-	border: 4px solid rgb(0, 134, 7);
+	/*background-color: rgba(0, 255, 55, 0.411);
+	border: 4px solid rgb(0, 134, 7);*/
 	height: 25%;
 	display: flex;
 	flex-wrap: nowrap;
@@ -336,7 +339,7 @@ body {
 }
 
 .player-side-info{
-	background-color: rgba(229, 255, 0, 0.411);
+	/*background-color: rgba(229, 255, 0, 0.411);*/
 	flex-grow: 0;
 	width: 15%;
 	display: flex;
@@ -417,7 +420,7 @@ body {
 
 
 .player-side-cartesEnMain{
-	background-color: rgba(0, 255, 34, 0.411);
+	/*background-color: rgba(0, 255, 34, 0.411);*/
 	flex-grow: 0;
 	width: 70%;
 	display: flex;
@@ -425,7 +428,7 @@ body {
 	align-items: center;
 }
 .player-side-buttons-container{
-	background-color: rgba(255, 123, 0, 0.411);
+	/*background-color: rgba(255, 123, 0, 0.411);*/
 	flex-grow: 0;
 	width: 15%;
 	display: flex;
@@ -441,14 +444,10 @@ body {
 
 /*-------------CARTE----------------*/
 
-.table-jeu{
-	user-select: none;
-}
-
 .carte{
 	background-image: url("../img/Carte/10090000\ -\ Geralt\ of\ Rivia.png");
 	height: 26vh;
-	width: 7.8vw;
+	width: 15vh;
 	background-size: 105% 105%;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -544,7 +543,7 @@ body {
 }
 .carte-desciption{
 	padding-top: 0.8vh;
-	font-size: 0.65vw;
+	font-size: 1.3vh;
 	text-align: center;
 	color: rgb(0, 0, 0);
 	font-weight: bold;
