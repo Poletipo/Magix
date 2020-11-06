@@ -1,5 +1,4 @@
-import AnimationHelper from "../AnimationHelper.js"
-export default class Title{
+class Title{
     constructor(){
         document.addEventListener("mousemove", evt =>{this.interactifMove(evt)});
 

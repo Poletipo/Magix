@@ -27,7 +27,6 @@ const sendForm = name =>{
         }
         if(name == "pratique" || name == "jouer"){
             window.location.href = "jeu.php";
-
         }
     })
 }

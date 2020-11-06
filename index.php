@@ -7,7 +7,12 @@
     require_once("partial/header.php");
 ?>
 
-<script type="module" src="./js/indexJavascript.js"></script>
+<script src="./js/AnimationHelper.js"></script>
+<script src="./js/sprite/Ciri.js"></script>
+<script src="./js/sprite/Geralt.js"></script>
+<script src="./js/sprite/Smoke.js"></script>
+<script src="./js/sprite/Title.js"></script>
+<script src="./js/indexJavascript.js"></script>
 
 <div class="login">
     <div class="login-title"></div>

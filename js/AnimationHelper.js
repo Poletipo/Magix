@@ -1,4 +1,4 @@
-export default class AnimationHelper{
+class AnimationHelper{
     constructor(node, animationKeys){
         //[x = 0,y = 1,finalSpeed = 2, time = 3]
         this.node = node;

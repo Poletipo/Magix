@@ -186,6 +186,28 @@ body {
 	}
   }
 
+.game-state{
+	position: absolute;
+	top: 30%;
+	width: 100%;
+	height: 50%;
+	/*display: flex;*/
+	flex-direction: column;
+	align-items: center;
+	display: none;
+	z-index: 10000;
+}
+.game-state-text{
+	text-align: center;
+	font-size: 15vh;
+	color: rgb(7, 218, 88);
+	text-shadow: 0.5vh 0.5vh 1vh black;
+}
+.btn-quitter{
+	display: none;
+	font-size: 10vh;
+}
+
 .enemy-side{
 	width: 100%;
 	/*background-color: rgba(165, 42, 42, 0.411);
@@ -583,7 +605,7 @@ body {
 }
 
 .carte-state{
-	/*display: none;*/
+	display: none;
 }
 
 /*-----------TIME-----------*/
@@ -614,3 +636,12 @@ body {
 }
 
 /*https://drive.google.com/drive/folders/1MsoUord03QB7-OlBtCXfstTZ9LRP4Qn1*/
+
+
+.chat-jeu{
+	position: absolute;
+	left:-600px;
+	top: 12vh;
+	background-color: white;
+	z-index: 10000;
+}

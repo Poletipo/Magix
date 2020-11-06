@@ -1,4 +1,4 @@
-export default class Smoke{
+class Smoke{
     constructor(x,y,speedX, speedY, size, duration, parent,style){
         this.size = size;
         this.style = style;

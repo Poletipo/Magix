@@ -1,7 +1,3 @@
-import Geralt from "./sprite/Geralt.js";
-import Ciri from "./sprite/Ciri.js";
-import Title from "./sprite/Title.js";
-import Smoke from "./sprite/Smoke.js";
 let spriteList = [];
 let smokeSpawn = 0;
 let smokeTimer = 0;

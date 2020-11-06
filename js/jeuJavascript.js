@@ -1,3 +1,4 @@
+
 let spriteList = [];
 let timer;
 let timerSprite;
@@ -9,6 +10,8 @@ let playerMana;
 let playerVie;
 let playerRemainingCard;
 let playerIcon;
+
+let gameState;
 
 let carteTemplate;
 
@@ -42,6 +45,7 @@ window.addEventListener("load", () => {
     carteTemplate = document.querySelector(".carte").innerHTML;
 
     playerBoard = document.querySelector(".player-play-side");
+    gameState = document.querySelector(".game-state");
 
     playerBoard.addEventListener("mouseover", evt=>{
         hover(evt, playerBoard);
@@ -53,7 +57,7 @@ window.addEventListener("load", () => {
     /*------------BUTTONS------------*/
     let buttons = document.querySelectorAll("button");
     buttons.forEach(btn => {
-        btn.onclick = () =>{jouer(btn.name,null,null)};
+        btn.onclick = () =>{bouton(btn)};
     })
 
     document.addEventListener("mousemove", evt => {mouseMove(evt);});
@@ -92,7 +96,42 @@ const state = () => {
     .then (response => response.json())
     .then( data => { 
         //console.log(data["yourTurn"]);
-        //console.log(data);
+        let stateText = null;
+        console.log(data);
+        if(data == "WAITING"){
+            stateText = "Waiting...";
+        }
+        else if(data == "LAST_GAME_WON"){
+            stateText = "Game Won";
+        }
+        else if(data == "LAST_GAME_LOST"){
+            stateText = "Game Lost";
+        }
+        else if(data == "NOT_IN_GAME"){
+            stateText = "Player Not in Game";
+        }
+        
+        if(stateText){
+            gameState.style.display = "flex";
+            gameState.querySelector(".game-state-text").innerText = stateText;
+            if(stateText != "Waiting..."){
+                gameState.querySelector(".btn-quitter").style.display = "block";
+                if(stateText == "Game Won"){
+                    enemyVie.innerText = "0";
+                }else if(stateText == "Game Lost"){
+                    console.log("lost");
+                    playerVie.innerText = "0";
+                }
+            }
+            else{
+                gameState.querySelector(".btn-quitter").style.display = "none";
+                
+            }
+        }else{
+            gameState.style.display = "none";
+        }
+
+
         if(data["yourTurn"] != undefined){
             myTurn = data["yourTurn"];
             //---------TIME--------
@@ -108,6 +147,9 @@ const state = () => {
             enemyName.innerText = data["opponent"]["username"];
             enemyMana.innerText = data["opponent"]["mp"];
             enemyVie.innerText = data["opponent"]["hp"];
+            if(stateText == "Game Won"){
+                enemyVie.innerText = "0";
+            }
             enemyRemainingCard.innerText = data["opponent"]["remainingCardsCount"];
             
             let enemyCardHand = document.querySelector(".enemy-side-cartesEnMain");
@@ -129,6 +171,9 @@ const state = () => {
             //-----------PLAYER------------
             playerMana.innerText = data["mp"];
             playerVie.innerText = data["hp"];
+            if(stateText == "Game Lost"){
+                playerVie.innerText = "0";
+            }
             playerRemainingCard.innerText = data["remainingCardsCount"];
             /*----------BOARD--------*/
             let playerPlaySide = document.querySelector(".player-play-side");
@@ -170,6 +215,11 @@ const createCard = info =>{
     node.querySelector(".carte-vie-valeur").innerText = info["hp"]; 
     node.querySelector(".carte-attack-valeur").innerText = info["atk"];
     node.querySelector(".carte-state").innerText = info["state"];
+
+    if(info["state"] == "IDLE"){
+        node.style.boxShadow = "0 0 0.5vh 0.1vh orange";
+    }
+    
     for(let i=0;i<info["mechanics"].length;i++){
         if(i == (info["mechanics"].length-1)){
             node.querySelector(".carte-desciption").innerText = info["mechanics"][i];
@@ -178,6 +228,9 @@ const createCard = info =>{
             let power = document.createElement("div");
             power.className = "carte-"+info["mechanics"][i];
             node.appendChild(power);
+            if(info["mechanics"][i]=="Taunt"){
+                node.style.borderBottom = "0.5vh solid rgb(0, 174, 255)";
+            }
         }
     }
     node.id = "d"+info.uid;
@@ -238,12 +291,11 @@ const clickCarte = (evt,carte) =>{
 }
 
 const hover = (evt,node) =>{
-    //console.log("hover board");
-    uidTarget = node;
-    console.log(uidTarget.id);
+    if(uid){
+        uidTarget = node;
+    }
 }
 const notHover = (evt) =>{
-    console.log("i quit!");
     uidTarget = null;
 }
 
@@ -293,4 +345,31 @@ const mouseUp = evt =>{
         uid = null;
     }
 }
+
+let hideChat = false;
+const bouton = btn =>{
+    if(btn.name == "HERO_POWER" || btn.name == "END_TURN"){
+        jouer(btn.name, null, null);
+    }
+    else if(btn.name == "SHOW_CHAT"){
+
+        let node = document.querySelector(".chat-jeu");
+        let x = parseInt(node.style.left);
+        let y = parseInt(node.style.top);
+        let xFinal = 0;
+        if(hideChat){
+            xFinal= -700;
+        }
+        node.style.left = xFinal +"px";
+        let anim = new AnimationHelper(node,[[x,y,0,0],[xFinal, y, 0,0.5]]);
+        spriteList.push(anim);
+
+        hideChat = !hideChat;
+    }
+    else if(btn.name == "QUITTER"){
+        window.location.href = "lobby.php";
+    }
+}
+
+
 
