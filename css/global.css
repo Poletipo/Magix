@@ -464,6 +464,7 @@ body {
 	border-radius: 1vh;
 	box-shadow: 0.1vh 0.2vh 0.8vh 0.1vh black;
 	position: relative;
+	z-index: 5;
 }
 .carte-mana{
 	background-image: url("../img/carte-mana.png");
@@ -520,6 +521,7 @@ body {
 	text-shadow: 0.2vh 0.2vh 0.3vh black;
 }
 .carte-noOverflow{
+	pointer-events: none;
 	position: absolute;
 	top: 0.1%;
 	left: -1%;
@@ -578,6 +580,10 @@ body {
 	position: absolute;
 	top: -1vh;
 	right: 5vh;
+}
+
+.carte-state{
+	/*display: none;*/
 }
 
 /*-----------TIME-----------*/

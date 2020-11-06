@@ -9,6 +9,7 @@
 <script src="js/jeuJavascript.js"></script>
 
 <template class="carte" >
+    <div class="carte-state"></div>
     <div class="carte-mana">
         <p class="carte-mana-valeur"></p>
     </div>
@@ -41,7 +42,7 @@
             <div class = "enemy-vie">
                 <p class="enemy-vie-valeur">100</p>
             </div>
-            <div class = "enemy-picture">
+            <div class = "enemy-picture" id ="d0">
                 <p class= "enemy-name">Enemy</p>
             </div>
             <div class = "enemy-mana">

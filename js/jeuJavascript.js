@@ -8,6 +8,7 @@ let enemyRemainingCard;
 let playerMana;
 let playerVie;
 let playerRemainingCard;
+let playerIcon;
 
 let carteTemplate;
 
@@ -26,6 +27,13 @@ window.addEventListener("load", () => {
     enemyMana = document.querySelector(".enemy-mana-valeur");
     enemyVie = document.querySelector(".enemy-vie-valeur");
     enemyRemainingCard = document.querySelector(".enemy-cartesRestanteValeur");
+    playerIcon = document.querySelector(".enemy-picture");
+    playerIcon.addEventListener("mouseover", evt=>{
+        hover(evt, playerIcon);
+    });
+    playerIcon.addEventListener("mouseout", evt=>{
+        notHover(evt);
+    });
     
     playerMana = document.querySelector(".player-mana-valeur");
     playerVie = document.querySelector(".player-vie-valeur");
@@ -84,7 +92,7 @@ const state = () => {
     .then (response => response.json())
     .then( data => { 
         //console.log(data["yourTurn"]);
-        console.log(data);
+        //console.log(data);
         if(data["yourTurn"] != undefined){
             myTurn = data["yourTurn"];
             //---------TIME--------
@@ -113,6 +121,8 @@ const state = () => {
             enemyPlaySide.innerHTML = '';
             for(let i = 0;i<data["opponent"]["board"].length;i++){
                 let node = createCard(data["opponent"]["board"][i]);
+                node.addEventListener("mouseover", evt => {hover(evt,node);});
+                node.addEventListener("mouseout", evt => {notHover(evt);});
                 enemyPlaySide.appendChild(node);
             }
             
@@ -125,6 +135,10 @@ const state = () => {
             playerPlaySide.innerHTML = '';
             for(let i = 0;i<data["board"].length;i++){
                 let node = createCard(data["board"][i]);
+                if(uid != null && node.id == uid.id){
+                    node.style.opacity = 0;
+                }
+                node.addEventListener("mousedown", evt =>{clickCarte(evt,node);});
                 playerPlaySide.appendChild(node);
             }
             /*----------HAND------------*/
@@ -155,6 +169,7 @@ const createCard = info =>{
     node.querySelector(".carte-mana-valeur").innerText = info["cost"]; 
     node.querySelector(".carte-vie-valeur").innerText = info["hp"]; 
     node.querySelector(".carte-attack-valeur").innerText = info["atk"];
+    node.querySelector(".carte-state").innerText = info["state"];
     for(let i=0;i<info["mechanics"].length;i++){
         if(i == (info["mechanics"].length-1)){
             node.querySelector(".carte-desciption").innerText = info["mechanics"][i];
@@ -184,39 +199,56 @@ const jouer = (action,uid, uidTarget) =>{
     })
     .then (response => response.json())
     .then(data =>{
-        console.log(data);
+        //console.log(data);
     })
 }
 
-
 const clickCarte = (evt,carte) =>{
     console.log("cete carte");
+    let carteValide = false;
     if(myTurn){
-        uid = carte;
-        shadowCard = carte.cloneNode(true);
-        carte.style.opacity = 0;
-        shadowCard.style.position = "absolute";
-        shadowCard.style.pointerEvents = "none";
-        shadowCard.style.zIndex = 100;
-
-        document.querySelector(".table-jeu").appendChild(shadowCard);
-        shadowCard.style.opacity = 0.8;
-        mouseMove(evt);
+        let state = carte.querySelector(".carte-state").innerText;
+        console.log(state);
+        if(state!="SLEEP"){
+            if(state == "undefined"){
+                let manaCost = carte.querySelector(".carte-mana-valeur").innerText;
+                console.log(manaCost, parseInt(playerMana.innerText));
+                if(manaCost <= parseInt(playerMana.innerText)){
+                    console.log("MAIN!!!!!! VALKIDE");
+                    carteValide = true;
+                }
+            }
+            else{
+                carteValide = true;
+            }
+        }
+        if(carteValide){
+            uid = carte;
+            shadowCard = carte.cloneNode(true);
+            carte.style.opacity = 0;
+            shadowCard.style.position = "absolute";
+            shadowCard.style.pointerEvents = "none";
+            shadowCard.style.zIndex = 100;
+    
+            document.querySelector(".table-jeu").appendChild(shadowCard);
+            shadowCard.style.opacity = 0.8;
+            mouseMove(evt);
+        }
     }
 }
 
 const hover = (evt,node) =>{
-    console.log("hover board");
+    //console.log("hover board");
     uidTarget = node;
+    console.log(uidTarget.id);
 }
 const notHover = (evt) =>{
-    console.log("not");
+    console.log("i quit!");
     uidTarget = null;
 }
 
 const mouseMove = evt =>{
     if(shadowCard != undefined){
-        console.log("cete carte");
         let width = shadowCard.clientWidth;
         let heigth = shadowCard.clientHeight;
         shadowCard.style.left = (evt.x - width/2) + "px";
@@ -225,22 +257,38 @@ const mouseMove = evt =>{
 }
 const mouseUp = evt =>{
     if(uid){
-        if(uidTarget == null){
-            //console.log("Up");
+        let state = uid.querySelector(".carte-state").innerText;
+        if(uidTarget!=null){
+            if(uidTarget.id == "myBoard" && state == "undefined"){
+                shadowCard.style.left = 0 + "px";
+                shadowCard.style.top = 0 + "px";
+                shadowCard.style.position = "relative";
+                shadowCard.remove();
+                shadowCard = null;
+                let carte = document.querySelector("#"+uid.id);
+                carte.style.opacity = 1;
+                
+                uidTarget.appendChild(carte);
+                jouer("PLAY",uid.id.substr(1),null);
+            }else if (uidTarget.id != "myBoard"){
+                shadowCard.remove();
+                shadowCard = null;
+                
+                let carte = document.querySelector("#"+uid.id);
+                carte.style.opacity = 1;
+                jouer("ATTACK",uid.id.substr(1),uidTarget.id.substr(1));
+            }
+            else{
+                shadowCard.remove();
+                shadowCard = null;
+                document.querySelector("#"+uid.id).style.opacity = 1;
+            }
+        }
+        else{
+            console.log("rien");
             shadowCard.remove();
             shadowCard = null;
             document.querySelector("#"+uid.id).style.opacity = 1;
-        }
-        else if(uidTarget.id == "myBoard"){
-            shadowCard.style.left = 0+ "px";
-            shadowCard.style.top = 0 + "px";
-            shadowCard.style.position = "relative";
-            let carte =document.querySelector("#"+uid.id);
-            carte.style.opacity = 1;
-            shadowCard.remove();
-            shadowCard = null;
-            
-            uidTarget.appendChild(carte);
         }
         uid = null;
     }
