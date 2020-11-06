@@ -197,7 +197,8 @@ body {
 }
 .enemy-side-cartesEnMain{
 	/*background-color: rgba(229, 255, 0, 0.411);*/
-	flex-grow: 1;
+	flex-grow: 0;
+	width: 35%;
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
@@ -206,7 +207,8 @@ body {
 .enemy-unturned-card{
 	background-image: url("../img/card-back.png");
 	height: 80%;
-	width: 12%;
+	width: 7vh;
+	flex-shrink: 1;
 	background-size: contain;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -214,7 +216,9 @@ body {
 }
 .enemy-side-milieu{
 	/*background-color: rgba(0, 255, 34, 0.411);*/
-	flex-grow: 0.5;
+	flex-grow: 0;
+	width: 30%;
+
 	display: flex;
 	justify-content: space-evenly;
 }
@@ -227,19 +231,18 @@ body {
 	background-size: contain;
 	background-position: center;
 	background-repeat: no-repeat;
-	height: 130%;
-	flex-grow: 1;
+	flex-shrink: 0;
 	display: flex;
-	align-items: flex-end;
 	justify-content: center;
+	width: 40%;
+	height: 130%;
 }
 .enemy-name{
-	font-size: 5vh;
-	padding-top: -3vh;
+	font-size: 4vh;
+	padding-top: 10vh;
 	text-align: center;
-	color: rgb(167, 0, 0);
+	color: rgb(250, 224, 108);
 	text-shadow: 0.2vh 0.5vh 0.5vh black;
-	user-select: none;
 	z-index: 5;
 }
 
@@ -250,7 +253,8 @@ body {
 	background-repeat: no-repeat;
 	display: flex;
 	height: 100%;
-	flex-grow: 1;
+	width: 30%;
+	flex-grow: 0;
 	align-items: center;
 	justify-content: center;
 }
@@ -269,7 +273,8 @@ body {
 	background-repeat: no-repeat;
 	display: flex;
 	height: 100%;
-	flex-grow: 1;
+	width: 30%;
+	flex-grow: 0;
 	align-items: center;
 	justify-content: center;
 }
@@ -284,7 +289,8 @@ body {
 
 .enemy-side-cartesRestantes{
 	/*background-color: rgba(255, 123, 0, 0.411);*/
-	flex: 1;
+	flex-grow: 0;
+	width: 35%;
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
@@ -314,6 +320,7 @@ body {
 	flex-wrap: nowrap;
 	justify-content: center;
 	align-items: center;
+	z-index: 100;
 }
 
 /*--------------PLAYER-------------*/
@@ -549,7 +556,7 @@ body {
 	font-weight: bold;
 }
 
-.carte-shield{
+.carte-Taunt{
 	background-image: url("../img/carte-shield.png");
 	background-size: contain;
 	background-position: center;
@@ -559,6 +566,18 @@ body {
 	position: absolute;
 	top: -1vh;
 	right: -1vh;
+}
+
+.carte-Charge{
+	background-image: url("../img/carte-charge.png");
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	height: 4.2vh;
+	width: 4.2vh;
+	position: absolute;
+	top: -1vh;
+	right: 5vh;
 }
 
 /*-----------TIME-----------*/
