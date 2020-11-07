@@ -3,6 +3,7 @@ let spriteList = [];
 let timer;
 let timerSprite;
 let enemyName;
+let enemyClass;
 let enemyMana;
 let enemyVie;
 let enemyRemainingCard;
@@ -27,6 +28,7 @@ window.addEventListener("load", () => {
     timer = document.querySelector(".time-valeur");
     timerSprite = document.querySelector(".time-sablier");
     enemyName = document.querySelector(".enemy-name");
+    enemyClass = document.querySelector(".enemy-class");
     enemyMana = document.querySelector(".enemy-mana-valeur");
     enemyVie = document.querySelector(".enemy-vie-valeur");
     enemyRemainingCard = document.querySelector(".enemy-cartesRestanteValeur");
@@ -145,6 +147,7 @@ const state = () => {
     
             //----------ENEMY------------
             enemyName.innerText = data["opponent"]["username"];
+            enemyClass.innerText = data["opponent"]["heroClass"];
             enemyMana.innerText = data["opponent"]["mp"];
             enemyVie.innerText = data["opponent"]["hp"];
             if(stateText == "Game Won"){

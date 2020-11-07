@@ -49,6 +49,7 @@
                 <p class="enemy-vie-valeur"></p>
             </div>
             <div class = "enemy-picture" id ="d0">
+                <p class= "enemy-class"></p>
                 <p class= "enemy-name"></p>
             </div>
             <div class = "enemy-mana">
