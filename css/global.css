@@ -190,7 +190,7 @@ body {
 	position: absolute;
 	top: 30%;
 	width: 100%;
-	height: 50%;
+	height: fit-content;
 	/*display: flex;*/
 	flex-direction: column;
 	align-items: center;
@@ -208,8 +208,29 @@ body {
 }
 .btn-quitter{
 	display: none;
-	font-size: 10vh;
+	font-size: 8vh;
+	color: rgb(12, 10, 6);
+	text-shadow: 0px 0.3vh 0px rgba(255,255,255,.5);
+	width: 60vh;
+	height: 12vh;
+	background-image: url("../img/button-golden@1x.png");
+	background-color: rgba(0, 0, 0, 0);
+	background-size: 60vh 12vh;
+	border: none;
+	outline:none;
+	
+	background-position: center top;
 }
+.btn-quitter:hover{
+	color: rgb(32, 27, 16);
+	background-image: url("../img/button-golden@1x_hover.png");
+}
+.btn-quitter:active{
+	border: none;
+	color: rgb(32, 27, 16);
+	background-image: url("../img/button-golden@1x_focus.png");
+}
+
 
 .enemy-side{
 	width: 100%;
@@ -472,14 +493,57 @@ body {
 	flex-grow: 0;
 	width: 15%;
 	display: flex;
-	flex-direction: column;
-	align-items: center;
+	flex-wrap: wrap;
 	justify-content: space-evenly;
 }
 .player-side-buttons{
-	height: 30%;
-	width: 70%;
+	height: 50%;
+	width: 45%;
+	background-color: rgba(0, 0, 0, 0);
+	background-image: url("../img/btn-HeroPower.png");
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	outline: none;
+	border: none;
 }
+
+#btn-HeroPower{
+	background-image: url("../img/btn-HeroPower.png");
+}
+#btn-HeroPower:hover{
+	background-image: url("../img/btn-HeroPower-hover.png");
+}
+#btn-HeroPower:active{
+	background-image: url("../img/btn-HeroPower-click.png");
+}
+#btn-HeroPower:disabled{
+	background-image: url("../img/btn-HeroPower-grey.png");
+}
+
+#btn-EndTurn{
+	background-image: url("../img/btn-EndTurn.png");
+}
+#btn-EndTurn:hover{
+	background-image: url("../img/btn-EndTurn-hover.png");
+}
+#btn-EndTurn:active{
+	background-image: url("../img/btn-EndTurn-click.png");
+}
+#btn-EndTurn:disabled{
+	background-image: url("../img/btn-EndTurn-grey.png");
+}
+
+#btn-ShowChat{
+	background-image: url("../img/btn-chat.png");
+}
+#btn-ShowChat:hover{
+	background-image: url("../img/btn-chat-hover.png");
+}
+#btn-ShowChat:active{
+	background-image: url("../img/btn-chat-click.png");
+}
+
 
 
 /*-------------CARTE----------------*/

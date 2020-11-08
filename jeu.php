@@ -34,7 +34,7 @@
 
     <div class="game-state">
         <p class="game-state-text">Partie Perdu</p>
-        <button class="btn-quitter" name = "QUITTER">Quitter</button>
+        <button class="btn-quitter" name ="QUITTER">Quit</button>
     </div>
 
     <div class="enemy-side">
@@ -94,9 +94,9 @@
 
         </div>
         <div class = "player-side-buttons-container">
-            <button class="player-side-buttons" name = "HERO_POWER">HEROPOWER</button>
-            <button class="player-side-buttons" name = "END_TURN">END TURN</button>
-            <button class="player-side-buttons" name = "SHOW_CHAT">SHOW CHAT</button>
+            <button class = "player-side-buttons" id="btn-HeroPower" name = "HERO_POWER"></button>
+            <button class = "player-side-buttons" id="btn-EndTurn" name = "END_TURN"></button>
+            <button class = "player-side-buttons" id="btn-ShowChat" name = "SHOW_CHAT"></button>
         </div>
     </div>
 

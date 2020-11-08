@@ -120,9 +120,11 @@ const state = () => {
                 gameState.querySelector(".btn-quitter").style.display = "block";
                 if(stateText == "Game Won"){
                     enemyVie.innerText = "0";
+                    
                 }else if(stateText == "Game Lost"){
                     console.log("lost");
                     playerVie.innerText = "0";
+                    gameState.querySelector(".game-state-text").style.color = "red";
                 }
             }
             else{
@@ -133,12 +135,23 @@ const state = () => {
             gameState.style.display = "none";
         }
 
+        let btnHeroPower = document.querySelector("#btn-HeroPower");
+        let btnEndTurn = document.querySelector("#btn-EndTurn");
+        
 
+        btnEndTurn.disabled = true;
+        btnHeroPower.disabled = true;
         if(data["yourTurn"] != undefined){
             myTurn = data["yourTurn"];
+            
+
             //---------TIME--------
             timer.innerText = data["remainingTurnTime"]
             if(data["yourTurn"]){
+                if(!data["heroPowerAlreadyUsed"] && data["mp"] >=2){
+                    btnHeroPower.disabled = false;   
+                }
+                btnEndTurn.disabled = false;
                 timerSprite.style.transform = "rotate(0.5turn)";
             }
             else{
