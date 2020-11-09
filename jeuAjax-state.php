@@ -10,7 +10,13 @@
         protected function executeAction() {
             $data["key"] = $_SESSION["theOneAndUltimateKey"];
 
-            $result = parent::callAPI("games/state", $data);
+            if(isset($_SESSION["obsUsername"])){
+                $data["username"] = $_SESSION["obsUsername"];
+                $result = parent::callAPI("games/observe", $data);
+            }
+            else{
+                $result = parent::callAPI("games/state", $data);
+            }
             return compact("result");
         }
     }

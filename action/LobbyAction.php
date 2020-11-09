@@ -9,6 +9,8 @@
 
         protected function executeAction() {
             
+            unset($_SESSION["obsUsername"]);
+
             return [];
         }
     }

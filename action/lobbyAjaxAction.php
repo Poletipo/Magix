@@ -20,8 +20,18 @@
 
                 }
                 elseif ($input == "pratique" || $input == "jouer") {
+                    if(!empty($_POST["privateKey"])){
+                        $data["private-key"] = $_POST["privateKey"];
+                    }
                     $data["type"] = ($input == "pratique" ? "TRAINING" : "PVP");
                     $result = parent::callAPI("games/auto-match", $data);
+                }
+                elseif($input == "observer"){
+                    if(!empty($_POST["username"])){
+                        $_SESSION["obsUsername"] = $_POST["username"];
+                        $data["type"] = $_POST["username"];
+                        $result = parent::callAPI("games/observe", $data);
+                    }
                 }
             }
 

@@ -138,16 +138,17 @@ const state = () => {
         let btnHeroPower = document.querySelector("#btn-HeroPower");
         let btnEndTurn = document.querySelector("#btn-EndTurn");
         
-
+        
         btnEndTurn.disabled = true;
         btnHeroPower.disabled = true;
         if(data["yourTurn"] != undefined){
             myTurn = data["yourTurn"];
             
-
+            
             //---------TIME--------
-            timer.innerText = data["remainingTurnTime"]
+            timer.innerText = data["remainingTurnTime"];
             if(data["yourTurn"]){
+                timer.style.color = "rgb(0, 255, 136)";
                 if(!data["heroPowerAlreadyUsed"] && data["mp"] >=2){
                     btnHeroPower.disabled = false;   
                 }
@@ -155,6 +156,7 @@ const state = () => {
                 timerSprite.style.transform = "rotate(0.5turn)";
             }
             else{
+                timer.style.color = "#ffbf00";
                 timerSprite.style.transform = "rotate(0deg)";
             }
     

@@ -6,13 +6,11 @@
 
     require_once("partial/header.php");
 
-
-
-    
 ?>
 <script src="js/lobbyJavascript.js"></script>
 
-<div>
+<div class="lobby">
+    <div class="lobby-banner">
         <?php
             if ($data["isLoggedIn"]) {
                 ?>
@@ -20,21 +18,24 @@
                 <?php
             }
         ?>
+    </div>
+    
+    <div class="lobby-btn-chat-container">
+        <div class="lobby-btn-container">
+            <button class="lobby-btn" name="pratique">Practice</button>
+            <button class="lobby-btn" name="jouer">Play</button>
+            <input class="lobby-input" type="text" name="PRIVATE_KEY" id="PRIVATE_KEY" placeholder="private key"/>
+            <button class="lobby-btn" name="observer">Observe</button>
+            <input class="lobby-input" type="text" name="observer" id="observe" placeholder="player name"/>
+            <button class="lobby-btn" name="quitter">Quit</button>
+        </div>
+
+        <div class="lobby-chat-container">
+            <iframe class="chat-lobby" style="width:500px;height:562px;" 
+                src=<?="https://magix.apps-de-cours.com/server/#/chat/" . $_SESSION["theOneAndUltimateKey"]."/large"?>>
+            </iframe>
+        </div>
+    </div>
 </div>
-
-
-<div>
-        <h1>Ceci est le Lobby</h1>
-        <button name="pratique">Pratique</button>
-        <button name="jouer">Jouer</button>
-        <button name="quitter">Quitter</button>
-</div>
-
-<div>
-    <iframe style="width:700px;height:240px;" 
-        src=<?="https://magix.apps-de-cours.com/server/#/chat/" . $_SESSION["theOneAndUltimateKey"]?>>
-    </iframe>
-</div>
-
 <?php
     require_once("partial/footer.php");

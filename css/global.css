@@ -161,8 +161,96 @@ body {
 	z-index: 0;
 	mix-blend-mode: screen;
 }
+/*----------------LOBBY-------------*/
 
+.lobby{
+	background-image: url("../img/lobby_background.jpg");
+	background-size: cover;
+	background-position: top;
+	background-repeat: no-repeat;
+	width: 100%;
+	height: 100%;
+}
 
+.lobby-banner{
+	width: 100%;
+	height: 8vh;
+	font-size: 5.8vh;
+	text-shadow: 0px 0.2vh 0px rgba(255,255,255,.5);
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	background-image: url("../img/title-bar.png");
+}
+
+.lobby-btn-chat-container{
+	display: flex;
+	height: 90vh;
+	margin-top: -8vh;
+}
+
+.lobby-chat-container{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+}
+
+.chat-lobby{
+	margin-top: 8vh;
+	margin-left: 8vh;
+	background-color: rgba(243, 194, 138, 0.657);
+	background-image: url("../img/frame-chat.png");
+	background-size: 100% 100%;
+	border: none;
+}
+.lobby-btn-container{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-end;
+	/*background: rgb(0,0,0);*/
+	background: linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(66,74,65,0) 100%);
+	width: 50vh;
+	height: 100vh;
+}
+.lobby-btn{
+	width: 100%;
+	height: 10vh;
+	font-size: 6vh;
+	color: rgb(12, 10, 6);
+	text-shadow: 0px 0.2vh 0px rgba(255,255,255,.5);
+	background-color: rgba(0, 0, 0, 0);
+	border: none;
+	outline: none;
+	background-image: url("../img/lobby-btn.png");
+	background-size: 100% 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	margin-bottom: 1vh;
+	margin-top: 1vh;
+}
+.lobby-btn:hover{
+	background-image: url("../img/lobby-btn-hover.png");
+}
+.lobby-btn:active{
+	background-image: url("../img/lobby-btn-click.png");
+}
+
+.lobby-input{
+	border-radius: 1vh;
+	height: 5vh;
+	width: 75%;
+	margin-right: 2vh;
+	text-align: right;
+	padding-right: 2vh;
+	font-size: 4vh;
+	background-color: rgb(216, 202, 157);
+}
 
 /*--------------JEU------------------*/
 
@@ -719,4 +807,8 @@ body {
 	top: 12vh;
 	background-color: white;
 	z-index: 10000;
+	background-color: rgba(243, 194, 138, 0.657);
+	background-image: url("../img/frame-chat.png");
+	background-size: 100% 100%;
+	border: none;
 }
