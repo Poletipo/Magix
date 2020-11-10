@@ -228,6 +228,7 @@ const state = () => {
 const createCard = info =>{
     let node = document.createElement("div");
     node.className = "carte";
+    node.setAttribute("uid", info["id"]);
     node.innerHTML = carteTemplate;
     node.querySelector(".carte-mana-valeur").innerText = info["cost"]; 
     node.querySelector(".carte-vie-valeur").innerText = info["hp"]; 
