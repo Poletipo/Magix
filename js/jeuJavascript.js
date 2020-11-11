@@ -24,6 +24,10 @@ let myTurn = false;
 let uid = null;
 let uidTarget = null;
 
+let listeMain = [];
+let listePlayerBoard = [];
+let listeEnemyBoard = [];
+
 window.addEventListener("load", () => {
     timer = document.querySelector(".time-valeur");
     timerSprite = document.querySelector(".time-sablier");
@@ -97,9 +101,12 @@ const state = () => {
     })
     .then (response => response.json())
     .then( data => { 
-        //console.log(data["yourTurn"]);
+        
+
+       
+
         let stateText = null;
-        console.log(data);
+        //console.log(data);
         if(data == "WAITING"){
             stateText = "Waiting...";
         }
@@ -143,7 +150,10 @@ const state = () => {
         btnHeroPower.disabled = true;
         if(data["yourTurn"] != undefined){
             myTurn = data["yourTurn"];
-            
+            listeMain = data["hand"];
+            listePlayerBoard = data["board"];
+            listeEnemyBoard = data["opponent"]["board"];
+            //console.log(data["opponent"]["board"]);
             
             //---------TIME--------
             timer.innerText = data["remainingTurnTime"];
@@ -212,6 +222,11 @@ const state = () => {
                 if(uid != null && node.id == uid.id){
                     node.style.opacity = 0;
                 }
+
+                if(data["hand"][i]["cost"] <= parseInt(playerMana.innerText)){
+                    node.style.boxShadow = "0 0 0.3vh 0.3vh #00ff0e";
+                }
+
                 node.addEventListener("mousedown", evt =>{clickCarte(evt,node);});
                 playerHand.appendChild(node);
             }
@@ -312,9 +327,40 @@ const clickCarte = (evt,carte) =>{
 const hover = (evt,node) =>{
     if(uid){
         uidTarget = node;
+        let handCard = false;
+        for(let i = 0;i<listeMain.length;i++){
+            if(uid.id == "d"+listeMain[i]["uid"]){
+                handCard = true;
+            }
+        }
+        if(!handCard){
+            for(let i = 0;i<listeEnemyBoard.length;i++){
+                console.log("-------------------");
+                if("d"+listeEnemyBoard[i]["uid"] == node.id){
+                    node.style.boxShadow = "0 0 0.3vh 0.4vh #ffff00";
+                }
+            }
+            if (node.id == "d0"){
+                //console.log(listeEnemyBoard[i]["uid"], node.id);
+                node.style.backgroundImage = "url('./img/picture-enemy-hover.png')"
+            }
+        }
     }
 }
 const notHover = (evt) =>{
+    if(uidTarget != null){
+        if(uidTarget.id != "myBoard" && uidTarget.id != "d0"){
+            let state = uidTarget.querySelector(".carte-state").innerText;
+            console.log("State: "+ state);
+            if (state == "IDLE"){
+                uidTarget.style.boxShadow = "0 0 0.5vh 0.1vh orange";
+            }
+        }
+        else if (uidTarget.id == "d0"){
+            uidTarget.style.backgroundImage = "url('./img/picture-enemy.png')"
+        }
+    }
+
     uidTarget = null;
 }
 

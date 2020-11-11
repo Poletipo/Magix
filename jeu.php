@@ -32,6 +32,9 @@
 
 <div class="table-jeu">
 
+    <p class="enemyPhrase"> I will ki you!</p>
+    <p class="playerPhrase"> I will ki you!</p>
+
     <div class="game-state">
         <p class="game-state-text">Partie Perdu</p>
         <button class="btn-quitter" name ="QUITTER">Quit</button>
