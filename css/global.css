@@ -274,6 +274,24 @@ body {
 	}
   }
 
+.Phrase{
+	position: absolute;
+	text-align: center;
+	width: 100%;
+	font-size: 5vh;
+	z-index: 101;
+	display: none;
+	text-shadow: 0.2vh 0.2vh 0.5vh black;
+}
+#enemyPhrase{
+	top: 18%;
+	color: rgb(184, 0, 0);
+}
+
+#playerPhrase{
+	top: 68%;
+	color: rgb(0, 207, 17);
+}
 .game-state{
 	position: absolute;
 	top: 30%;

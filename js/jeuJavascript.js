@@ -11,6 +11,8 @@ let playerMana;
 let playerVie;
 let playerRemainingCard;
 let playerIcon;
+let enemyPhrase;
+let playerPhrase;
 
 let gameState;
 
@@ -24,6 +26,8 @@ let myTurn = false;
 let uid = null;
 let uidTarget = null;
 
+let entered = false;
+
 let listeMain = [];
 let listePlayerBoard = [];
 let listeEnemyBoard = [];
@@ -36,6 +40,9 @@ window.addEventListener("load", () => {
     enemyMana = document.querySelector(".enemy-mana-valeur");
     enemyVie = document.querySelector(".enemy-vie-valeur");
     enemyRemainingCard = document.querySelector(".enemy-cartesRestanteValeur");
+    enemyPhrase = document.querySelector("#enemyPhrase");
+
+    playerPhrase = document.querySelector("#playerPhrase");
     playerIcon = document.querySelector(".enemy-picture");
     playerIcon.addEventListener("mouseover", evt=>{
         hover(evt, playerIcon);
@@ -149,6 +156,13 @@ const state = () => {
         btnEndTurn.disabled = true;
         btnHeroPower.disabled = true;
         if(data["yourTurn"] != undefined){
+
+            if(!entered){
+                enemyPhrase.innerText = data["opponent"]["welcomeText"];
+                playerPhrase.innerText = data["welcomeText"];
+                playIntro();
+                entered = true;
+            }
             myTurn = data["yourTurn"];
             listeMain = data["hand"];
             listePlayerBoard = data["board"];
@@ -436,5 +450,15 @@ const bouton = btn =>{
     }
 }
 
-
+const playIntro = () =>{
+    if(!entered){
+        enemyPhrase.style.display = "block";
+        playerPhrase.style.display = "block";
+        setTimeout(playIntro, 3000);
+    }
+    else{
+        enemyPhrase.style.display = "none";
+        playerPhrase.style.display = "none";
+    }
+}
 

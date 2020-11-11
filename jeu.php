@@ -32,8 +32,8 @@
 
 <div class="table-jeu">
 
-    <p class="enemyPhrase"> I will ki you!</p>
-    <p class="playerPhrase"> I will ki you!</p>
+    <p class="Phrase" id ="enemyPhrase">Hello, how are you?</p>
+    <p class="Phrase" id ="playerPhrase">Fine, thank you!</p>
 
     <div class="game-state">
         <p class="game-state-text">Partie Perdu</p>
