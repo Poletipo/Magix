@@ -113,7 +113,7 @@ const state = () => {
        
 
         let stateText = null;
-        //console.log(data);
+        console.log(data);
         if(data == "WAITING"){
             stateText = "Waiting...";
         }

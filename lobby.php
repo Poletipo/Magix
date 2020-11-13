@@ -23,10 +23,13 @@
     <div class="lobby-btn-chat-container">
         <div class="lobby-btn-container">
             <button class="lobby-btn" name="pratique">Practice</button>
+            <button class="lobby-btn" name="pratiqueCoop">Practice (Coop)</button>
             <button class="lobby-btn" name="jouer">Play</button>
+            <button class="lobby-btn" name="jouerCoop">Play (Coop)</button>
             <input class="lobby-input" type="text" name="PRIVATE_KEY" id="PRIVATE_KEY" placeholder="private key"/>
             <button class="lobby-btn" name="observer">Observe</button>
             <input class="lobby-input" type="text" name="observer" id="observe" placeholder="player name"/>
+            <button class="lobby-btn" name="historic">Historique</button>
             <button class="lobby-btn" name="quitter">Quit</button>
         </div>
 

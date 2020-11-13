@@ -1,5 +1,5 @@
 div[uid = "0"]{
-	background-image: url("../img/Carte/card (74).png");
+	background-image: url("../img/Carte/card (0).png");
 }
 
 div[uid = "1"]{
@@ -294,3 +294,22 @@ div[uid = "73"]{
 	background-image: url("../img/Carte/card (73).png");
 }
 
+div[uid = "74"]{
+	background-image: url("../img/Carte/card (74).png");
+}
+
+div[uid = "75"]{
+	background-image: url("../img/Carte/card (75).png");
+}
+
+div[uid = "76"]{
+	background-image: url("../img/Carte/card (76).png");
+}
+
+div[uid = "77"]{
+	background-image: url("../img/Carte/card (77).png");
+}
+
+div[uid = "78"]{
+	background-image: url("../img/Carte/card (78).png");
+}

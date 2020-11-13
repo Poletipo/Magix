@@ -12,6 +12,9 @@
             $result = [];
             if(isset($_POST["name"])){
                 $input = $_POST["name"];
+                if(!empty($_POST["privateKey"])){
+                    $data["privateKey"] = $_POST["privateKey"];
+                }
 
                 if($input == "quitter"){
                     $result = parent::callAPI("signout", $data);
@@ -20,10 +23,12 @@
 
                 }
                 elseif ($input == "pratique" || $input == "jouer") {
-                    if(!empty($_POST["privateKey"])){
-                        $data["private-key"] = $_POST["privateKey"];
-                    }
                     $data["type"] = ($input == "pratique" ? "TRAINING" : "PVP");
+                    $result = parent::callAPI("games/auto-match", $data);
+                }
+                elseif ($input == "pratiqueCoop" || $input == "jouerCoop"){
+                    $data["type"] = ($input == "pratiqueCoop" ? "TRAINING" : "PVP");
+                    $data["mode"] = "COOP";
                     $result = parent::callAPI("games/auto-match", $data);
                 }
                 elseif($input == "observer"){

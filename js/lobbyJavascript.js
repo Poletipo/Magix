@@ -53,7 +53,8 @@ const sendForm = name =>{
         if(name == "quitter"){
             window.location.href = "index.php";
         }
-        if(name == "pratique" || name == "jouer"){
+        if(name == "pratique" || name == "jouer" || 
+            name == "pratiqueCoop" || name == "jouerCoop"){
             window.location.href = "jeu.php";
         }
         else if(name == "observer" && username != ""){
