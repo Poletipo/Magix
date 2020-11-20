@@ -75,8 +75,15 @@ window.addEventListener("load", () => {
 
     document.addEventListener("mousemove", evt => {mouseMove(evt);});
     document.addEventListener("mouseup", evt => {mouseUp(evt);});
-
+    
     setTimeout(state, 1000); // Appel initial (attendre 1 seconde)
+    
+    spriteList.push(new Flamme(4.2,5.5,5,0.05, document.querySelector(".table-jeu"),"%"));
+    spriteList.push(new Flamme(5.1,5.7,5,0.05, document.querySelector(".table-jeu"),"%"));
+    
+
+    spriteList.push(new Flamme(16.7,4.1,10,0.05, document.querySelector(".table-jeu"),"%"));
+    
     window.requestAnimationFrame(tick);
 })
 

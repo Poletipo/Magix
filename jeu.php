@@ -7,6 +7,7 @@
     require_once("partial/header.php");
 ?>
 <script src="js/AnimationHelper.js"></script>
+<script src="js/sprite/Flamme.js"></script>
 <script src="js/jeuJavascript.js"></script>
 
 <template class="carte" >

@@ -6,6 +6,7 @@ window.addEventListener("load", () =>{
         btn.onclick = () =>{sendForm(btn.name)};
     })
 
+    spriteList.push(new Flamme(20,4.2,20,0.08, document.querySelector(".lobby"),"%"));
 
     window.requestAnimationFrame(tick);
 })
@@ -59,6 +60,9 @@ const sendForm = name =>{
         }
         else if(name == "observer" && username != ""){
             window.location.href = "jeu.php";
+        }
+        else if(name == "historique"){
+            window.location.href = "historique.php";
         }
     })
 }
