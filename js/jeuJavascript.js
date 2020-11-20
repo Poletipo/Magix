@@ -83,7 +83,34 @@ window.addEventListener("load", () => {
     
 
     spriteList.push(new Flamme(16.7,4.1,10,0.05, document.querySelector(".table-jeu"),"%"));
+    spriteList.push(new Flamme(15.8, 5.26,4,0.05, document.querySelector(".table-jeu"),"%"));
+    spriteList.push(new Flamme(17.2, 5.9,3,0.05, document.querySelector(".table-jeu"),"%"));
     
+    spriteList.push(new Flamme(81.5, 5.2,5,0.05, document.querySelector(".table-jeu"),"%"));
+    spriteList.push(new Flamme(83, 5.4,4,0.05, document.querySelector(".table-jeu"),"%"));
+    spriteList.push(new Flamme(82, 7,6,0.05, document.querySelector(".table-jeu"),"%"));
+    
+    spriteList.push(new Flamme(95.2, 50.9,5,0.05, document.querySelector(".table-jeu"),"%"));
+    spriteList.push(new Flamme(96, 49,5,0.05, document.querySelector(".table-jeu"),"%"));
+    spriteList.push(new Flamme(94.45, 48,5,0.05, document.querySelector(".table-jeu"),"%"));
+    
+    spriteList.push(new Flamme(92.2, 78.25,3,0.05, document.querySelector(".table-jeu"),"%"));
+    spriteList.push(new Flamme(91.48, 79.2,5,0.05, document.querySelector(".table-jeu"),"%"));
+    spriteList.push(new Flamme(92, 82,6,0.05, document.querySelector(".table-jeu"),"%"));
+    
+    spriteList.push(new Flamme(7.5, 81.2,5,0.05, document.querySelector(".table-jeu"),"%"));
+    spriteList.push(new Flamme(7.6, 85.1,4,0.05, document.querySelector(".table-jeu"),"%"));
+    spriteList.push(new Flamme(6.9, 82.7,4,0.05, document.querySelector(".table-jeu"),"%"));
+    spriteList.push(new Flamme(8.15, 81.6,4,0.05, document.querySelector(".table-jeu"),"%"));
+
+
+    document.addEventListener("mousemove",evt=>{
+        let w = window.innerWidth;
+        let h = window.innerHeight;
+        //console.log(evt.x*100/w, evt.y*100/h);
+        console.log(evt.x, evt.y);
+    })
+
     window.requestAnimationFrame(tick);
 })
 
@@ -120,7 +147,7 @@ const state = () => {
        
 
         let stateText = null;
-        console.log(data);
+        //console.log(data);
         if(data == "WAITING"){
             stateText = "Waiting...";
         }
@@ -143,7 +170,6 @@ const state = () => {
                     enemyVie.innerText = "0";
                     
                 }else if(stateText == "Game Lost"){
-                    console.log("lost");
                     playerVie.innerText = "0";
                     gameState.querySelector(".game-state-text").style.color = "red";
                 }
@@ -258,7 +284,6 @@ const state = () => {
     setTimeout(state, 1000); // Attendre 1 seconde avant de relancer l’appel
     })
 }
-
 
 
 const createCard = info =>{

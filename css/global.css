@@ -478,6 +478,7 @@ body {
 	background-repeat: no-repeat;
 	height: 70%;
 	width: 20%;
+	
 }
 .enemy-cartesRestanteValeur{
 	font-size: 6vh;
@@ -509,6 +510,7 @@ body {
 	flex-wrap: nowrap;
 	justify-content: center;
 	align-items: center;
+	
 }
 .player-side{
 	width: 100%;
@@ -526,6 +528,7 @@ body {
 	flex-grow: 0;
 	width: 15%;
 	display: flex;
+	z-index: 1;
 }
 .player-side-info-valeur{
 	height: 100%;
@@ -590,6 +593,7 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	z-index: 1;
 }
 .player-cartesRestanteValeur{
 	padding-top: 35%;
@@ -815,6 +819,7 @@ body {
 	right: 1%;
 	display: flex;
 	align-items: center;
+	z-index: 1;
 }
 .time-sablier{
 	background-image: url("../img/sablier.png");
@@ -851,9 +856,77 @@ body {
 
 .historique-container{
 	background-image: url("../img/bd-board.jpg");
-
 	width: 100%;
 	height: 100%;
-	background-size: 100% 100%;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	display: flex;
+	justify-content: center;
+}
 
+.historique-match-list{
+	width: 50%;
+	height: 99%;
+	display: flex;
+	justify-content: start;
+	align-items: center;
+	flex-direction: column;
+}
+
+.hist-leftSpace{
+	width: 13%;
+}
+
+.historique-match{
+	height: 10%;
+	width: 100%;
+	background-image: url("../img/match-report.jpg");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	display: flex;
+	align-items: center;
+
+	width: 60%;
+	
+}
+
+.hist-names-container{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 80%;
+	width: 34%;
+}
+
+.hist-name1{
+
+}
+.hist-name1{
+
+}
+.hist-vs{
+	text-align: center;
+	font-size: 2vh;
+	color: red;
+}
+
+.hist-date{
+	width: 20%;
+	display: flex;
+	align-items: center;
+	color: rgba(0, 255, 234, 0.801);
+}
+
+.hist-name-winner{
+	color: rgb(30, 255, 0);
+	width: 33%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.hist-name-winner p{
+	
+	font-size: 4vh;
 }
