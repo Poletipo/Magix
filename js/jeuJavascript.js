@@ -108,7 +108,7 @@ window.addEventListener("load", () => {
         let w = window.innerWidth;
         let h = window.innerHeight;
         //console.log(evt.x*100/w, evt.y*100/h);
-        console.log(evt.x, evt.y);
+        //console.log(evt.x, evt.y);
     })
 
     window.requestAnimationFrame(tick);
@@ -147,7 +147,7 @@ const state = () => {
        
 
         let stateText = null;
-        //console.log(data);
+        console.log(data);
         if(data == "WAITING"){
             stateText = "Waiting...";
         }
@@ -335,25 +335,33 @@ const jouer = (action,uid, uidTarget) =>{
         //console.log(data);
     })
 }
-
+let carteEnMain = false;
 const clickCarte = (evt,carte) =>{
     console.log("cete carte");
     let carteValide = false;
     if(myTurn){
         let state = carte.querySelector(".carte-state").innerText;
         console.log(state);
-        if(state!="SLEEP"){
-            if(state == "undefined"){
-                let manaCost = carte.querySelector(".carte-mana-valeur").innerText;
-                console.log(manaCost, parseInt(playerMana.innerText));
-                if(manaCost <= parseInt(playerMana.innerText)){
-                    console.log("MAIN!!!!!! VALKIDE");
-                    carteValide = true;
-                }
+        
+        
+        carteEnMain = false;
+        listeMain.forEach(carteMain=>{
+            console.log(carteMain.id, carte.id);
+            if(carteMain["uid"] == carte.id.substr(1)){
+                carteEnMain = true;
             }
-            else{
+        })
+        if(carteEnMain){
+            let manaCost = carte.querySelector(".carte-mana-valeur").innerText;
+            console.log(manaCost, parseInt(playerMana.innerText));
+            if(manaCost <= parseInt(playerMana.innerText)){
+                console.log("MAIN!!!!!! VALKIDE");
                 carteValide = true;
             }
+        }
+        else if(state!="SLEEP"){
+            carteValide = true;
+
         }
         if(carteValide){
             uid = carte;
@@ -422,7 +430,7 @@ const mouseUp = evt =>{
     if(uid){
         let state = uid.querySelector(".carte-state").innerText;
         if(uidTarget!=null){
-            if(uidTarget.id == "myBoard" && state == "undefined"){
+            if(uidTarget.id == "myBoard" && carteEnMain){
                 shadowCard.style.left = 0 + "px";
                 shadowCard.style.top = 0 + "px";
                 shadowCard.style.position = "relative";
