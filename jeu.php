@@ -37,6 +37,8 @@
     <p class="Phrase" id ="enemyPhrase">Hello, how are you?</p>
     <p class="Phrase" id ="playerPhrase">Fine, thank you!</p>
 
+    <p class="msg-error">Ground control to major Tom</p>
+
     <div class="game-state">
         <p class="game-state-text">Partie Perdu</p>
         <button class="btn-quitter" name ="QUITTER">Quit</button>
@@ -44,8 +46,6 @@
 
     <div class="enemy-side">
         <div class = "enemy-side-cartesEnMain">
-
-    
 
         </div>
         <div class = "enemy-side-milieu">

@@ -307,6 +307,19 @@ body {
 	top: 68%;
 	color: rgb(0, 207, 17);
 }
+
+.msg-error{
+	position: absolute;
+	display: none;
+	bottom: 28vh;
+	right: 1vw;
+	color: rgb(255, 174, 0);
+	font-size: 5vh;
+	z-index: 10;
+	pointer-events: none;
+	text-shadow: 0.2vh 0.2vh 0.5vh black;
+}
+
 .game-state{
 	position: absolute;
 	top: 30%;
@@ -870,7 +883,6 @@ body {
 .btn-quitter-corner:hover{
 	background-image: url("../img/btn-quitter-hover.png");
 }
-
 .btn-quitter-corner:active{
 	background-image: url("../img/btn-quitter-click.png");
 }

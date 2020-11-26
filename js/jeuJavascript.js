@@ -15,6 +15,7 @@ let enemyPhrase;
 let playerPhrase;
 
 let gameState;
+let msgError;
 
 let carteTemplate;
 
@@ -59,6 +60,7 @@ window.addEventListener("load", () => {
 
     playerBoard = document.querySelector(".player-play-side");
     gameState = document.querySelector(".game-state");
+    msgError = document.querySelector(".msg-error");
 
     playerBoard.addEventListener("mouseover", evt=>{
         hover(evt, playerBoard);
@@ -147,7 +149,7 @@ const state = () => {
        
 
         let stateText = null;
-        console.log(data);
+        //console.log(data);
         if(data == "WAITING"){
             stateText = "Waiting...";
         }
@@ -332,7 +334,15 @@ const jouer = (action,uid, uidTarget) =>{
     })
     .then (response => response.json())
     .then(data =>{
-        //console.log(data);
+        console.log(data);
+        if(typeof data !== "object"){
+            let msg = ""
+            if(data == "BOARD_IS_FULL")
+                msg = "The board is full"
+            else if (data == "MUST_ATTACK_TAUNT_FIRST")
+                msg = "You must attack Taunt cards first"
+            showError(msg);
+        }
     })
 }
 let carteEnMain = false;
@@ -500,5 +510,15 @@ const playIntro = () =>{
         enemyPhrase.style.display = "none";
         playerPhrase.style.display = "none";
     }
+}
+
+const showError = msg =>{
+    msgError.innerText = msg;
+    msgError.style.display = "block";
+    setTimeout(hideError,3000);
+}
+
+const hideError = () =>{
+    msgError.style.display = "none";
 }
 
