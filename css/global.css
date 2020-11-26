@@ -852,6 +852,29 @@ body {
 	border: none;
 }
 
+.btn-quitter-corner{
+	position: absolute;
+	background-image: url("../img/btn-quitter.png");
+	border-radius: 2vh;
+	background-color: rgba(159, 161, 23, 0);
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	outline: none;
+	border: none;
+	right: 3vh;
+	top: 3vh;
+	width: 10vh;
+	height: 10vh;
+}
+.btn-quitter-corner:hover{
+	background-image: url("../img/btn-quitter-hover.png");
+}
+
+.btn-quitter-corner:active{
+	background-image: url("../img/btn-quitter-click.png");
+}
+
 /*-----------------HISTORIQUE----------------------*/
 
 .historique-container{
@@ -900,12 +923,6 @@ body {
 	width: 34%;
 }
 
-.hist-name1{
-
-}
-.hist-name1{
-
-}
 .hist-vs{
 	text-align: center;
 	font-size: 2vh;

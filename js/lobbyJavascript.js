@@ -51,7 +51,7 @@ const sendForm = name =>{
     })
     //.then(response => console.log(response))
     .then(() =>{
-        if(name == "quitter"){
+        if(name == "QUITTER"){
             window.location.href = "index.php";
         }
         if(name == "pratique" || name == "jouer" || 

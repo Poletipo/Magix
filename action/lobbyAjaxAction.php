@@ -16,7 +16,7 @@
                     $data["privateKey"] = $_POST["privateKey"];
                 }
 
-                if($input == "quitter"){
+                if($input == "QUITTER"){
                     $result = parent::callAPI("signout", $data);
                     session_unset();
                     session_destroy();

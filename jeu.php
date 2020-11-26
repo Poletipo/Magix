@@ -32,6 +32,7 @@
 
 
 <div class="table-jeu">
+    <button class="btn-quitter-corner" name="QUITTER"></button>
 
     <p class="Phrase" id ="enemyPhrase">Hello, how are you?</p>
     <p class="Phrase" id ="playerPhrase">Fine, thank you!</p>

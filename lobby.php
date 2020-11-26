@@ -31,7 +31,6 @@
             <button class="lobby-btn" name="observer">Observe</button>
             <input class="lobby-input" type="text" name="observer" id="observe" placeholder="player name"/>
             <button class="lobby-btn" name="historique">Historique</button>
-            <button class="lobby-btn" name="quitter">Quit</button>
         </div>
 
         <div class="lobby-chat-container">
@@ -40,6 +39,7 @@
             </iframe>
         </div>
     </div>
+    <button class="btn-quitter-corner" name="QUITTER"></button>
 </div>
 <?php
     require_once("partial/footer.php");
