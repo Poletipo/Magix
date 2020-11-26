@@ -194,7 +194,11 @@ const state = () => {
 
             if(!entered){
                 enemyPhrase.innerText = data["opponent"]["welcomeText"];
+                if(data["opponent"]["username"] == "Arthax")
+                    enemyPhrase.innerText = "Je suis une poule mouillé!";
                 playerPhrase.innerText = data["welcomeText"];
+                if(data["welcomeText"] == "My life for Aiur!")
+                        playerPhrase.innerText = "Je suis une poule mouillé!";
                 playIntro();
                 entered = true;
             }
@@ -221,6 +225,7 @@ const state = () => {
     
             //----------ENEMY------------
             enemyName.innerText = data["opponent"]["username"];
+            if(data["opponent"]["username"] == "Arthax")
             enemyClass.innerText = data["opponent"]["heroClass"];
             enemyMana.innerText = data["opponent"]["mp"];
             enemyVie.innerText = data["opponent"]["hp"];
