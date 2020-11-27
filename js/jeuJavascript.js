@@ -83,7 +83,6 @@ window.addEventListener("load", () => {
     spriteList.push(new Flamme(4.2,5.5,5,0.05, document.querySelector(".table-jeu"),"%"));
     spriteList.push(new Flamme(5.1,5.7,5,0.05, document.querySelector(".table-jeu"),"%"));
     
-
     spriteList.push(new Flamme(16.7,4.1,7,0.05, document.querySelector(".table-jeu"),"%"));
     spriteList.push(new Flamme(15.8, 5.26,4,0.05, document.querySelector(".table-jeu"),"%"));
     spriteList.push(new Flamme(17.2, 5.9,3,0.05, document.querySelector(".table-jeu"),"%"));
@@ -137,9 +136,6 @@ const state = () => {
     .then (response => response.json())
     .then( data => { 
         
-
-       
-
         let stateText = null;
         if(data == "WAITING"){
             stateText = "Waiting...";
@@ -335,7 +331,7 @@ const jouer = (action,uid, uidTarget) =>{
             else if (data == "MUST_ATTACK_TAUNT_FIRST")
                 msg = "You must attack Taunt cards first";
             else if (data == "WRONG_TURN")
-                msg = "It's not your turn yet";
+                msg = "It's not your turn";
             else if (data == "GAME_NOT_FOUND")
                 msg = "Game not found";
             else 

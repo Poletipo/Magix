@@ -15,7 +15,7 @@
         <?php
             if ($data["isLoggedIn"]) {
                 ?>
-                Bonjour, <?= $_SESSION["username"] ?> !
+                Welcome, <?= $_SESSION["username"] ?> !
                 <?php
             }
         ?>
