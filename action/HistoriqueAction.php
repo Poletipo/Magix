@@ -1,5 +1,6 @@
 <?php
     require_once("action/CommonAction.php");
+    require_once("action/DAO/HistoriqueDAO.php");
 
     class HistoriqueAction extends CommonAction {
 
@@ -8,7 +9,7 @@
         }
 
         protected function executeAction() {
-            
-            return [];
+            $matches = HistoriqueDAO::getMatches();
+            return compact("matches");
         }
     }

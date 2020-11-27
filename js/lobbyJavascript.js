@@ -6,7 +6,8 @@ window.addEventListener("load", () =>{
         btn.onclick = () =>{sendForm(btn.name)};
     })
 
-    spriteList.push(new Flamme(20,4.2,20,0.08, document.querySelector(".lobby"),"%"));
+    spriteList.push(new Flamme(20.3,4.1,20,0.08, document.querySelector(".lobby"),"%"));
+    spriteList.push(new Flamme(23,12,17,0.08, document.querySelector(".lobby"),"%"));
 
     window.requestAnimationFrame(tick);
 })
@@ -25,7 +26,6 @@ const tick = timeSpan =>{
     }
 
     window.requestAnimationFrame(tick);
-
 }
 
 const sendForm = name =>{
@@ -33,23 +33,18 @@ const sendForm = name =>{
     formData.append("name", name);
     let privateKey = document.querySelector("#PRIVATE_KEY").value;
     if(privateKey != ""){
-        console.log(privateKey);
         formData.append("privateKey", privateKey);
     }
     let username = document.querySelector("#observe").value;
     if(username != ""){
-        console.log(username);
         formData.append("username", username);
     }
-
-    console.log("tha name: " + name);
 
     fetch("lobbyAjax.php",{
         method : "POST",
         credentials : "include",
         body : formData
     })
-    //.then(response => console.log(response))
     .then(() =>{
         if(name == "QUITTER"){
             window.location.href = "index.php";

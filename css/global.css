@@ -210,14 +210,17 @@ body {
 
 .lobby-chat-container{
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	height: 100%;
+	height: 102%;
+	margin-top: 7vh;
+	margin-left: 8vh;
 }
 
 .chat-lobby{
-	margin-top: 8vh;
-	margin-left: 8vh;
+	margin-top: 1vh;
+	
 	background-color: rgba(243, 194, 138, 0.657);
 	background-image: url("../img/frame-chat.png");
 	background-size: 100% 100%;
@@ -875,8 +878,8 @@ body {
 	background-repeat: no-repeat;
 	outline: none;
 	border: none;
-	right: 3vh;
-	top: 3vh;
+	right: 1vh;
+	top: 1vh;
 	width: 10vh;
 	height: 10vh;
 }
@@ -893,7 +896,7 @@ body {
 	background-image: url("../img/bd-board.jpg");
 	width: 100%;
 	height: 100%;
-	background-size: contain;
+	background-size: 100% 100%;
 	background-repeat: no-repeat;
 	background-position: center;
 	display: flex;
@@ -902,8 +905,10 @@ body {
 
 .historique-match-list{
 	width: 50%;
-	height: 99%;
+	height: 96%;
 	display: flex;
+	margin-left: 15vh;
+	margin-top: 1.5%;
 	justify-content: start;
 	align-items: center;
 	flex-direction: column;
@@ -914,14 +919,17 @@ body {
 }
 
 .historique-match{
-	height: 10%;
+	margin-top: 0.6%;
+	height: 9%;
 	width: 100%;
 	background-image: url("../img/match-report.jpg");
-	background-size: contain;
+	background-size: 100% 100%;
 	background-repeat: no-repeat;
 	background-position: center;
 	display: flex;
 	align-items: center;
+	text-shadow: 0.2vh 0.2vh 0.3vh black;
+	box-shadow: 0 0 0.5vh 0.5vh rgba(0, 0, 0, 0.438);
 
 	width: 60%;
 	
@@ -933,29 +941,45 @@ body {
 	justify-content: space-between;
 	height: 80%;
 	width: 34%;
+	color: rgb(255, 248, 153);
+	
+}
+.hist-name1{
+	font-size: 3vh;
+}
+.hist-name2{
+	font-size: 3vh;
 }
 
 .hist-vs{
-	text-align: center;
 	font-size: 2vh;
-	color: red;
+	color: rgb(0, 217, 255);
+	margin-left: 8%;
 }
 
 .hist-date{
-	width: 20%;
+	width: 25%;
 	display: flex;
 	align-items: center;
 	color: rgba(0, 255, 234, 0.801);
 }
+.hist-date p{
+	font-size: 4vh;
+	text-align: center;
+}
 
 .hist-name-winner{
-	color: rgb(30, 255, 0);
 	width: 33%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	flex-direction: column;
 }
-.hist-name-winner p{
-	
+.hist-name-winner-name{
+	color: rgb(30, 255, 0);
 	font-size: 4vh;
+}
+.text-winner{
+	color: rgb(255, 244, 89);
+	font-size: 2vh;
 }

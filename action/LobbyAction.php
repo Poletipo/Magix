@@ -10,6 +10,7 @@
         protected function executeAction() {
             
             unset($_SESSION["obsUsername"]);
+            $_SESSION["gameDone"] = "notDone";
 
             return [];
         }

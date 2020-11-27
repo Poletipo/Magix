@@ -24,19 +24,19 @@
     <div class="lobby-btn-chat-container">
         <div class="lobby-btn-container">
             <button class="lobby-btn" name="pratique">Practice</button>
-            <button class="lobby-btn" name="pratiqueCoop">Practice (Coop)</button>
             <button class="lobby-btn" name="jouer">Play</button>
-            <button class="lobby-btn" name="jouerCoop">Play (Coop)</button>
             <input class="lobby-input" type="text" name="PRIVATE_KEY" id="PRIVATE_KEY" placeholder="private key"/>
-            <button class="lobby-btn" name="observer">Observe</button>
-            <input class="lobby-input" type="text" name="observer" id="observe" placeholder="player name"/>
-            <button class="lobby-btn" name="historique">Historique</button>
+            <button class="lobby-btn" name="pratiqueCoop">Practice (Coop)</button>
+            <button class="lobby-btn" name="jouerCoop">Play (Coop)</button>
         </div>
 
         <div class="lobby-chat-container">
+            <button class="lobby-btn" name="observer">Observe</button>
+            <input class="lobby-input" type="text" name="observer" id="observe" placeholder="player name"/>
             <iframe class="chat-lobby" style="width:500px;height:562px;" 
                 src=<?="https://magix.apps-de-cours.com/server/#/chat/" . $_SESSION["theOneAndUltimateKey"]."/large"?>>
             </iframe>
+            <button class="lobby-btn" name="historique">Historique</button>
         </div>
     </div>
     <button class="btn-quitter-corner" name="QUITTER"></button>

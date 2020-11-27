@@ -84,7 +84,7 @@ window.addEventListener("load", () => {
     spriteList.push(new Flamme(5.1,5.7,5,0.05, document.querySelector(".table-jeu"),"%"));
     
 
-    spriteList.push(new Flamme(16.7,4.1,10,0.05, document.querySelector(".table-jeu"),"%"));
+    spriteList.push(new Flamme(16.7,4.1,7,0.05, document.querySelector(".table-jeu"),"%"));
     spriteList.push(new Flamme(15.8, 5.26,4,0.05, document.querySelector(".table-jeu"),"%"));
     spriteList.push(new Flamme(17.2, 5.9,3,0.05, document.querySelector(".table-jeu"),"%"));
     
@@ -104,14 +104,6 @@ window.addEventListener("load", () => {
     spriteList.push(new Flamme(7.6, 85.1,4,0.05, document.querySelector(".table-jeu"),"%"));
     spriteList.push(new Flamme(6.9, 82.7,4,0.05, document.querySelector(".table-jeu"),"%"));
     spriteList.push(new Flamme(8.15, 81.6,4,0.05, document.querySelector(".table-jeu"),"%"));
-
-
-    document.addEventListener("mousemove",evt=>{
-        let w = window.innerWidth;
-        let h = window.innerHeight;
-        //console.log(evt.x*100/w, evt.y*100/h);
-        //console.log(evt.x, evt.y);
-    })
 
     window.requestAnimationFrame(tick);
 })
@@ -149,7 +141,6 @@ const state = () => {
        
 
         let stateText = null;
-        //console.log(data);
         if(data == "WAITING"){
             stateText = "Waiting...";
         }
@@ -169,9 +160,11 @@ const state = () => {
             if(stateText != "Waiting..."){
                 gameState.querySelector(".btn-quitter").style.display = "block";
                 if(stateText == "Game Won"){
+                    matchToDatabase("player");
                     enemyVie.innerText = "0";
                     
                 }else if(stateText == "Game Lost"){
+                    matchToDatabase("enemy");
                     playerVie.innerText = "0";
                     gameState.querySelector(".game-state-text").style.color = "red";
                 }
@@ -206,7 +199,6 @@ const state = () => {
             listeMain = data["hand"];
             listePlayerBoard = data["board"];
             listeEnemyBoard = data["opponent"]["board"];
-            //console.log(data["opponent"]["board"]);
             
             //---------TIME--------
             timer.innerText = data["remainingTurnTime"];
@@ -225,7 +217,6 @@ const state = () => {
     
             //----------ENEMY------------
             enemyName.innerText = data["opponent"]["username"];
-            if(data["opponent"]["username"] == "Arthax")
             enemyClass.innerText = data["opponent"]["heroClass"];
             enemyMana.innerText = data["opponent"]["mp"];
             enemyVie.innerText = data["opponent"]["hp"];
@@ -285,8 +276,6 @@ const state = () => {
                 playerHand.appendChild(node);
             }
         }
-
-        //console.log(reponse); // contient les cartes/état du jeu.
     
     setTimeout(state, 1000); // Attendre 1 seconde avant de relancer l’appel
     })
@@ -339,44 +328,40 @@ const jouer = (action,uid, uidTarget) =>{
     })
     .then (response => response.json())
     .then(data =>{
-        console.log(data);
         if(typeof data !== "object"){
             let msg = ""
             if(data == "BOARD_IS_FULL")
-                msg = "The board is full"
+                msg = "The board is full";
             else if (data == "MUST_ATTACK_TAUNT_FIRST")
-                msg = "You must attack Taunt cards first"
+                msg = "You must attack Taunt cards first";
+            else if (data == "WRONG_TURN")
+                msg = "It's not your turn yet";
+            else 
+                msg = data;
             showError(msg);
         }
     })
 }
 let carteEnMain = false;
 const clickCarte = (evt,carte) =>{
-    console.log("cete carte");
     let carteValide = false;
     if(myTurn){
         let state = carte.querySelector(".carte-state").innerText;
-        console.log(state);
-        
         
         carteEnMain = false;
         listeMain.forEach(carteMain=>{
-            console.log(carteMain.id, carte.id);
             if(carteMain["uid"] == carte.id.substr(1)){
                 carteEnMain = true;
             }
         })
         if(carteEnMain){
             let manaCost = carte.querySelector(".carte-mana-valeur").innerText;
-            console.log(manaCost, parseInt(playerMana.innerText));
             if(manaCost <= parseInt(playerMana.innerText)){
-                console.log("MAIN!!!!!! VALKIDE");
                 carteValide = true;
             }
         }
         else if(state!="SLEEP"){
             carteValide = true;
-
         }
         if(carteValide){
             uid = carte;
@@ -404,13 +389,11 @@ const hover = (evt,node) =>{
         }
         if(!handCard){
             for(let i = 0;i<listeEnemyBoard.length;i++){
-                console.log("-------------------");
                 if("d"+listeEnemyBoard[i]["uid"] == node.id){
                     node.style.boxShadow = "0 0 0.3vh 0.4vh #ffff00";
                 }
             }
             if (node.id == "d0"){
-                //console.log(listeEnemyBoard[i]["uid"], node.id);
                 node.style.backgroundImage = "url('./img/picture-enemy-hover.png')"
             }
         }
@@ -420,7 +403,6 @@ const notHover = (evt) =>{
     if(uidTarget != null){
         if(uidTarget.id != "myBoard" && uidTarget.id != "d0"){
             let state = uidTarget.querySelector(".carte-state").innerText;
-            console.log("State: "+ state);
             if (state == "IDLE"){
                 uidTarget.style.boxShadow = "0 0 0.5vh 0.1vh orange";
             }
@@ -471,7 +453,6 @@ const mouseUp = evt =>{
             }
         }
         else{
-            console.log("rien");
             shadowCard.remove();
             shadowCard = null;
             document.querySelector("#"+uid.id).style.opacity = 1;
@@ -527,3 +508,16 @@ const hideError = () =>{
     msgError.style.display = "none";
 }
 
+const matchToDatabase = winner =>{
+    let formData = new FormData();
+
+    formData.append("action", "historique");
+    formData.append("enemy", enemyName.innerText);
+    formData.append("winner", winner);
+
+    fetch("jeuAjax.php", {
+        method : "POST",
+        credentials : "include",
+        body : formData
+    })
+}

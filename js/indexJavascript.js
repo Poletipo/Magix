@@ -7,7 +7,6 @@ window.addEventListener("load", () => {
     spriteList.push(new Geralt());
     spriteList.push(new Ciri());
     spriteList.push(new Title());
-    //spriteList.push(new Smoke(50,75,5,-3,50,999,document.querySelector(".smoke-container"), "%"));
     
     window.requestAnimationFrame(tick);
 })

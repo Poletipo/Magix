@@ -1,6 +1,6 @@
 <?php
 
-    define("DB_HOST", "webmysql.notes-de-cours.com:13306");
-    define("DB_NAME", "smarthome");
-    define("DB_USER", "smarthomeuser");
-    define("DB_PASS", "smhFTW!6l");
+    define("DB_HOST", "localhost");
+    define("DB_NAME", "postgres");
+    define("DB_USER", "postgres");
+    define("DB_PASS", "123");
