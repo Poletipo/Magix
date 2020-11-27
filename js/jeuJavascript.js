@@ -336,6 +336,8 @@ const jouer = (action,uid, uidTarget) =>{
                 msg = "You must attack Taunt cards first";
             else if (data == "WRONG_TURN")
                 msg = "It's not your turn yet";
+            else if (data == "GAME_NOT_FOUND")
+                msg = "Game not found";
             else 
                 msg = data;
             showError(msg);

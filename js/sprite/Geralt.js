@@ -8,7 +8,6 @@ class Geralt{
 
     }
 
-
     tick(deltatick){
         
         let alive = true;
@@ -22,7 +21,6 @@ class Geralt{
 
         return alive;
     }
-    
     
     interactifMove(evt){
         if(!this.anim){
