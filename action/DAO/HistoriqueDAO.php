@@ -6,7 +6,7 @@
         public static function getMatches(){
             $connection = Connection::getConnection();
             
-            $statement = $connection->prepare("SELECT player,enemy, TO_CHAR(date,'dd/mm/yy') AS date,winner FROM magix_historique ORDER BY date,id DESC LIMIT 10");
+            $statement = $connection->prepare("SELECT player,enemy, TO_CHAR(date,'dd/mm/yy') AS date,winner FROM magix_historique ORDER BY id DESC LIMIT 10");
             $statement->setFetchMode(PDO::FETCH_ASSOC);
             $statement->execute();
             

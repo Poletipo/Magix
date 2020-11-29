@@ -200,6 +200,7 @@ body {
 	justify-content: center;
 	text-align: center;
 	background-image: url("../img/title-bar.png");
+	z-index: 1000000000;
 }
 
 .lobby-btn-chat-container{
