@@ -135,6 +135,8 @@ const state = () => {
     })
     .then (response => response.json())
     .then( data => { 
+
+        console.log(data);
         
         let stateText = null;
         if(data == "WAITING"){
@@ -304,6 +306,10 @@ const createCard = info =>{
                 node.style.borderBottom = "0.5vh solid rgb(0, 174, 255)";
             }
         }
+        if(info["mechanics"][i]=="Stealth"){
+            node.querySelector(".carte-mana").style.backgroundImage = "url('./img/carte-mana-stealth.png')"
+        }
+
     }
     node.id = "d"+info.uid;
 
