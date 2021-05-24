@@ -1,5 +1,4 @@
 <?php
-	include("action/jeuAction.php");
     require_once("action/jeuAction.php");
 
     $action = new jeuAction();
