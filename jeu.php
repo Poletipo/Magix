@@ -1,5 +1,6 @@
 <?php
-    require_once("./action/jeuAction.php");
+	$root = $_SERVER['DOCUMENT_ROOT'];
+    require_once($root . "/action/jeuAction.php");
 
     $action = new jeuAction();
     $data = $action->execute();
