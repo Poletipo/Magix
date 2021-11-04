@@ -1,5 +1,5 @@
 <?php
-    require_once("action/jeuAction.php");
+    require_once("action/JeuAction.php");
 
     $action = new jeuAction();
     $data = $action->execute();
