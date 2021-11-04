@@ -1,5 +1,5 @@
 <?php
-    require_once("action/LobbyAjaxAction.php");
+    require_once("action/lobbyAjaxAction.php");
 
     $action = new LobbyAjaxAction();
     $data = $action->execute();
