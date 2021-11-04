@@ -20,9 +20,9 @@
                     else{
                         $winner = $_POST["enemy"];
                     }
-                    HistoriqueDAO::addMatch($_SESSION["username"],$_POST["enemy"],$winner);
-                    $_SESSION["gameDone"] = "done";
-                    $result = "done";
+                    //HistoriqueDAO::addMatch($_SESSION["username"],$_POST["enemy"],$winner);
+                    //$_SESSION["gameDone"] = "done";
+                    //$result = "done";
                 }
                 else if($_POST["action"] != "historique"){
                     $data["type"] = $_POST["action"];

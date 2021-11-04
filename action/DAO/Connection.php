@@ -1,6 +1,6 @@
 <?php
 
-    /*class Connection {
+    class Connection {
         private static $connection;
 
         public static function getConnection() {
@@ -12,4 +12,4 @@
 
             return Connection::$connection;
         }
-    }*/
+    }
