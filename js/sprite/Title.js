@@ -4,16 +4,13 @@ class Title{
 
         this.node = document.querySelector(".login-title");
         this.animKeys = [[-800,-200,0,0],[0,450,900,1]];
-        this.anim = new AnimationHelper(this.node,this.animKeys);
-        this.timer = 0;
-        this.sizeX = 200;
-        this.sizeY = 150;
-        this.dimX = 100;
-        this.dimY = 100;
-        this.introDone = false;
+        this.anim = null;
         
-        this.node.style.width = 200 + "%";
-        this.node.style.height = 200 + "%";
+        this.node.style.width = 100 + "%";
+        this.node.style.height = 50 + "%";
+
+        this.node.style.left = 0 + "px";
+        this.node.style.top = 450 + "px";
         
     }
     
@@ -22,18 +19,10 @@ class Title{
         let alive = true;
         let aliveAnim = false;
         if(this.anim){
-
             aliveAnim = this.anim.tick(deltatick);
         }
         if(!aliveAnim){
             this.anim = null;
-            this.introDone = true;
-        }
-        if(!this.introDone){
-            this.sizeX -= this.dimX * deltatick;
-            this.sizeY -= this.dimY * deltatick;
-            this.node.style.width = this.sizeX + "%";
-            this.node.style.height = this.sizeY + "%";
         }
 
         return alive;
